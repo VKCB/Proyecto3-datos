@@ -31,7 +31,7 @@ public class PintarDibujos {
     public static void pinta_Circulo(Graphics g, int x, int y, String n){
         //g.drawOval(x, y-10, 20, 20);
         Toolkit t = Toolkit.getDefaultToolkit ();
-        Image imagen = t.getImage ("C:\\\\Users\\\\Allan\\\\Desktop\\\\Pruebas\\\\src\\\\img\\\\localizacion.png");
+        Image imagen = t.getImage ("R:\\TEC - II 2021\\Algoritmos y estructura de datos I\\Proyectos\\Proyecto 3\\Proyecto3-datos\\Pruebas\\src\\img\\localizacion.png");
         //((Graphics2D) g).setColor(Color.RED);
         //((Graphics2D) g).setStroke(new BasicStroke(3));//leda el grosor al circulo      
         //((Graphics2D) g).drawImage(imagen, x, y,15, 15, null);
