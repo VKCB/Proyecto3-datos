@@ -8,6 +8,9 @@ import Clases.DatosGraficos;
 import Clases.PintarDibujos;
 import java.awt.Color;
 import java.awt.Font;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,7 +23,7 @@ public class Mapa extends javax.swing.JFrame {
     
     DatosGraficos arboles = new DatosGraficos();
 
-    public static void PintarFiguras(int tope, DatosGraficos arboles) {//pinta lo q esta antes en el panel 
+    public static void PintarFiguras(int tope, DatosGraficos arboles) throws IOException {//pinta lo q esta antes en el panel 
         for (int j = 0; j < tope; j++) {
             for (int k = 0; k < tope; k++) {
                 if (arboles.getmAdyacencia(j, k) == 1) {
@@ -30,6 +33,7 @@ public class Mapa extends javax.swing.JFrame {
         }
         for (int j = 0; j < tope; j++) {
             PintarDibujos.pinta_Circulo(jLabel1.getGraphics(), arboles.getCordeX(j), arboles.getCordeY(j), arboles.getNombre(j));
+            
         }
     }
 
@@ -163,7 +167,11 @@ public class Mapa extends javax.swing.JFrame {
             }
         }
         Numerotope = 15;
-        PintarFiguras(Numerotope, arboles); 
+        try { 
+            PintarFiguras(Numerotope, arboles);
+        } catch (IOException ex) {
+            Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

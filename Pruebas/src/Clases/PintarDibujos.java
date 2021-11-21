@@ -12,41 +12,45 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 
 /**
  *
  * @author Allan
  */
 public class PintarDibujos {
-    
+
     public PintarDibujos() {
 
     }
 
-    public static void pinta_Circulo(Graphics g, int x, int y, String n){
-        //g.drawOval(x, y-10, 20, 20);
-        Toolkit t = Toolkit.getDefaultToolkit ();
-        Image imagen = t.getImage ("R:\\TEC - II 2021\\Algoritmos y estructura de datos I\\Proyectos\\Proyecto 3\\Proyecto3-datos\\Pruebas\\src\\img\\localizacion.png");
-        //((Graphics2D) g).setColor(Color.RED);
-        //((Graphics2D) g).setStroke(new BasicStroke(3));//leda el grosor al circulo      
-        //((Graphics2D) g).drawImage(imagen, x, y,15, 15, null);
-        //((Graphics2D) g).fillOval(x, y, 10, 10);
-        //((Graphics2D) g).setColor(Color.RED);
-        //((Graphics2D) g).drawOval(x, y, 15, 15);
-        ((Graphics2D) g).drawImage(imagen, x, y, 22, 22, null);
-        //((Graphics2D) g).setColor(Color.RED);
-        //((Graphics2D) g).drawImage(iconeNave, x, y, null);
+    public static void pinta_Circulo(Graphics g, int x, int y, String n) throws IOException {
+        try {
+            //g.drawOval(x, y-10, 20, 20);
+            //Toolkit t = Toolkit.getDefaultToolkit ();
+            File archImg = new File("localizacion.png");
+            Image imagen2 = ImageIO.read(archImg);
 
-        ((Graphics2D) g).setColor(Color.RED);
-        Font fuente = new Font("Monospaced", Font.BOLD, 19);
-        g.setFont(fuente);
-        ((Graphics2D) g).drawString(n, x, y);
+            //Image imagen = t.getImage("R:\\TEC - II 2021\\Algoritmos y estructura de datos I\\Proyectos\\Proyecto 3\\Proyecto3-datos\\Pruebas\\src\\img\\localizacion.png");
+            //((Graphics2D) g).setColor(Color.RED);
+            //((Graphics2D) g).setStroke(new BasicStroke(3));//leda el grosor al circulo
+            //((Graphics2D) g).drawImage(imagen, x, y,15, 15, null);
+            //((Graphics2D) g).fillOval(x, y, 10, 10);
+            //((Graphics2D) g).setColor(Color.RED);
+            //((Graphics2D) g).drawOval(x, y, 15, 15);
+            ((Graphics2D) g).drawImage(imagen2, x, y, 22, 22, null);
+            //((Graphics2D) g).setColor(Color.RED);
+            //((Graphics2D) g).drawImage(iconeNave, x, y, null);
 
+            ((Graphics2D) g).setColor(Color.RED);
+            Font fuente = new Font("Monospaced", Font.BOLD, 19);
+            g.setFont(fuente);
+            ((Graphics2D) g).drawString(n, x, y);
+        } catch (IOException ex) {
+
+        }
     }
 
     public static void pinta_Linea(Graphics g, int x1, int y1, int x2, int y2, double tam) {
@@ -68,7 +72,7 @@ public class PintarDibujos {
         if (y1 >= y2) {
             yAux = ((y1 - y2) / 2) + y2;
         }
-        ((Graphics2D)g).setColor(Color.RED);//PINTANDO TEXTO DE VERTICES(TAMANIO)
+        ((Graphics2D) g).setColor(Color.RED);//PINTANDO TEXTO DE VERTICES(TAMANIO)
         Font fuente = new Font("Monospaced", Font.PLAIN, 11);
         g.setFont(fuente);
         ((Graphics2D) g).drawString(String.valueOf(tam), xAux, yAux);
@@ -80,11 +84,12 @@ public class PintarDibujos {
         ((Graphics2D) g).setStroke(stroke);
         g.setColor(color);
         g.drawLine(x1 + 10, y1 + 10, x2 + 10, y2 + 10);
-        
+
     }
 //Pintando nodos que son recorridos
+
     public static void seleccionNodo(Graphics g, int x, int y, String n, Color co) {
-        
+
         ((Graphics2D) g).setColor(co);
         ((Graphics2D) g).setStroke(new BasicStroke(3));//leda el grosor del contorno al circulo        
         ((Graphics2D) g).fillOval(x, y, 15, 15);//tamanio del circulo
@@ -92,5 +97,5 @@ public class PintarDibujos {
         ((Graphics2D) g).drawOval(x, y, 15, 15);
 
     }
-    
+
 }
