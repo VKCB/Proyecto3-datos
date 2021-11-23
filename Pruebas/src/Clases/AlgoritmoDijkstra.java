@@ -5,9 +5,10 @@
  */
 package Clases;
 
-import static Forms.Mapa.PintarFiguras;
-import static Forms.Mapa.jLabel1;
+import static Forms.Mapa.PintarRutas;
 import java.awt.Color;
+import java.io.IOException;
+import static Forms.Mapa.LabelMapa;
 
 /**
  *
@@ -16,10 +17,10 @@ import java.awt.Color;
 public class AlgoritmoDijkstra {
     private final DatosGraficos arboles;
     private int subTope;
-    private Nodo Nodoauxiliar = null;
+    private Vertice Nodoauxiliar = null;
     private double auxiliarAumulado; // es un acumulado auxiliar
     private double subtotalAcomulado;
-    private final Nodo nodo[];
+    private final Vertice nodo[];
     private final int tope;
     private int Origen;
     private final int nodoFinal;
@@ -27,7 +28,7 @@ public class AlgoritmoDijkstra {
     public AlgoritmoDijkstra(DatosGraficos arboles, int tope, int permanente, int nodoFin) {
         this.arboles = arboles;
         this.tope = tope;
-        this.nodo = new Nodo[tope];
+        this.nodo = new Vertice[tope];
         this.Origen = permanente;
         this.nodoFinal = nodoFin;
 
@@ -41,16 +42,16 @@ public class AlgoritmoDijkstra {
         return nodo[nodoFinal].getNombre();
     }
 
-    public void dijkstra() {
+    public void dijkstra() throws IOException {
         for (int i = 0; i < tope; i++) // creacion del vector nodo del tamaño del numero de nodos pintados 
         {
-            nodo[i] = new Nodo();
+            nodo[i] = new Vertice();
         }
-            jLabel1.paint(jLabel1.getGraphics());
-            PintarFiguras(tope, arboles);
-            PintarDibujos.seleccionNodo(jLabel1.getGraphics(), 
-                    arboles.getCordeX(Origen), 
-                    arboles.getCordeY(Origen), null, Color.GREEN); // pinta de color el nodo de Origen
+            LabelMapa.paint(LabelMapa.getGraphics());
+            PintarRutas(tope, arboles);
+            Dibujos.seleccionNodo(LabelMapa.getGraphics(), 
+                    arboles.getCoordeX(Origen), 
+                    arboles.getCoordeY(Origen), null, Color.GREEN); // pinta de color el nodo de Origen
 
             nodo[Origen].setVisitado(true);
             nodo[Origen].setNombre(Origen);
@@ -61,7 +62,7 @@ public class AlgoritmoDijkstra {
                 nodo[Origen].setEtiqueta(true);
                 for (int j = 0; j < tope; j++) {
                     if (arboles.getmAdyacencia(j, Origen) == 1) {
-                        subtotalAcomulado = nodo[Origen].getAcumulado() + arboles.getmCoeficiente(j, Origen);
+                        subtotalAcomulado = nodo[Origen].getAcumulado() + arboles.getmDistancias(j, Origen);
                         
                         if (subtotalAcomulado <= nodo[j].getAcumulado() && nodo[j].isVisitado() == true && nodo[j].isEtiqueta() == false) {
                             nodo[j].setAcumulado(subtotalAcomulado);
@@ -93,21 +94,21 @@ public class AlgoritmoDijkstra {
             
             //Pintando caminos recorridos
             while (Nodoauxiliar.getPredecesor() != null) {
-                PintarDibujos.pinta_Camino(jLabel1.getGraphics(), 
-                        arboles.getCordeX(Nodoauxiliar.getNombre()),
-                        arboles.getCordeY(Nodoauxiliar.getNombre()),
-                        arboles.getCordeX(Nodoauxiliar.getPredecesor().getNombre()), 
-                        arboles.getCordeY(Nodoauxiliar.getPredecesor().getNombre()), Color.BLUE);
+                Dibujos.pinta_Camino(LabelMapa.getGraphics(), 
+                        arboles.getCoordeX(Nodoauxiliar.getNombre()),
+                        arboles.getCoordeY(Nodoauxiliar.getNombre()),
+                        arboles.getCoordeX(Nodoauxiliar.getPredecesor().getNombre()), 
+                        arboles.getCoordeY(Nodoauxiliar.getPredecesor().getNombre()), Color.BLUE);
                 
-                PintarDibujos.seleccionNodo(jLabel1.getGraphics(), 
-                        arboles.getCordeX(Nodoauxiliar.getNombre()), 
-                        arboles.getCordeY(Nodoauxiliar.getNombre()), null, Color.BLUE);
+                Dibujos.seleccionNodo(LabelMapa.getGraphics(), 
+                        arboles.getCoordeX(Nodoauxiliar.getNombre()), 
+                        arboles.getCoordeY(Nodoauxiliar.getNombre()), null, Color.BLUE);
                 Nodoauxiliar = Nodoauxiliar.getPredecesor();
             }//fin de while Recorriendo caminos
             
-            PintarDibujos.seleccionNodo(jLabel1.getGraphics(), 
-                    arboles.getCordeX(nodoFinal), 
-                    arboles.getCordeY(nodoFinal), null, Color.RED);//Pintando Nodo del destino
+            Dibujos.seleccionNodo(LabelMapa.getGraphics(), 
+                    arboles.getCoordeX(nodoFinal), 
+                    arboles.getCoordeY(nodoFinal), null, Color.RED);//Pintando Nodo del destino
         
     }
     

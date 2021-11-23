@@ -10,11 +10,12 @@ package Clases;
  * @author Allan
  */
 public class DatosGraficos {
-    private final double MatrizCoeficiente[][] = new double[51][51];
-    private final int MatrizAdyacencia[][] = new int[51][51];
-    private final int cordenadaX[] = new int[51];
-    private final int cordenadaY[] = new int[51];
-    private final String nombre[] = new String[51];
+
+    private final double MatrizDistancias[][] = new double[15][15];
+    private final int MatrizAdyacencia[][] = new int[15][15];
+    private final int coordenadaX[] = new int[15];
+    private final int coordenadaY[] = new int[15];
+    private final String nombre[] = new String[15];
     private int enArbol[];
 
     /**
@@ -25,20 +26,20 @@ public class DatosGraficos {
 
     }
 
-    public double getmCoeficiente(int i, int j) {
-        return MatrizCoeficiente[i][j];
+    public double getmDistancias(int i, int j) {
+        return MatrizDistancias[i][j];
     }
 
     public int getmAdyacencia(int i, int j) {
         return MatrizAdyacencia[i][j];
     }
 
-    public int getCordeX(int i) {
-        return cordenadaX[i];
+    public int getCoordeX(int i) {
+        return coordenadaX[i];
     }
 
-    public int getCordeY(int i) {
-        return cordenadaY[i];
+    public int getCoordeY(int i) {
+        return coordenadaY[i];
     }
 
     public String getNombre(int i) {
@@ -49,20 +50,20 @@ public class DatosGraficos {
         return enArbol[i];
     }
 
-    public void setmCoeficiente(int i, int j, double mCoeficiente) {
-        this.MatrizCoeficiente[i][j] = mCoeficiente;
+    public void setmDistancias(int i, int j, double mCoeficiente) {
+        this.MatrizDistancias[i][j] = mCoeficiente;
     }
 
     public void setmAdyacencia(int i, int j, int mAdyacencia) {
         this.MatrizAdyacencia[i][j] = mAdyacencia;
     }
 
-    public void setCordeX(int i, int cordeX) {
-        this.cordenadaX[i] = cordeX;
+    public void setCoordeX(int i, int cordeX) {
+        this.coordenadaX[i] = cordeX;
     }
 
-    public void setCordeY(int i, int cordeY) {
-        this.cordenadaY[i] = cordeY;
+    public void setCoordeY(int i, int cordeY) {
+        this.coordenadaY[i] = cordeY;
     }
 
     public void setNombre(int i, String nombre) {
@@ -76,5 +77,5 @@ public class DatosGraficos {
     public void crearEnArbol(int i) {
         enArbol = new int[i];
     }
-    
+
 }

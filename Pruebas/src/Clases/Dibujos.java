@@ -20,13 +20,13 @@ import javax.imageio.ImageIO;
  *
  * @author Allan
  */
-public class PintarDibujos {
+public class Dibujos {
 
-    public PintarDibujos() {
+    public Dibujos() {
 
     }
 
-    public static void pinta_Circulo(Graphics g, int x, int y, String n) throws IOException {
+    public static void pinta_localizador(Graphics g, int x, int y, String n) throws IOException {
         try {
             //g.drawOval(x, y-10, 20, 20);
             //Toolkit t = Toolkit.getDefaultToolkit ();
@@ -53,29 +53,32 @@ public class PintarDibujos {
         }
     }
 
-    public static void pinta_Linea(Graphics g, int x1, int y1, int x2, int y2, double tam) {
+    public static void pinta_Rutas(Graphics g, int coordXPuntoPartida, int coordYPuntoPartida, int coordXDestino, int coordYDestino, double distancia) {
         int xAux = 0;
         int yAux = 0;
+        
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         BasicStroke stroke = new BasicStroke(1);
         ((Graphics2D) g).setStroke(stroke);
-        ((Graphics2D) g).drawLine(x1 + 10, y1 + 10, x2 + 10, y2 + 10);
-        if (x1 <= x2) {
-            xAux = ((x2 - x1) / 2) + x1;
+        ((Graphics2D) g).drawLine(coordXPuntoPartida + 10, coordYPuntoPartida + 10, coordXDestino + 10, coordYDestino + 10);
+        
+        if (coordXPuntoPartida <= coordXDestino) {
+            xAux = ((coordXDestino - coordXPuntoPartida) / 2) + coordXPuntoPartida+2;
         }
-        if (x1 > x2) {
-            xAux = ((x1 - x2) / 2) + x2;
+        if (coordXPuntoPartida > coordXDestino) {
+            xAux = ((coordXPuntoPartida - coordXDestino) / 2) + coordXDestino + 2;
         }
-        if (y1 < y2) {
-            yAux = ((y2 - y1) / 2) + y1;
+        if (coordYPuntoPartida < coordYDestino) {
+            yAux = ((coordYDestino - coordYPuntoPartida) / 2) + coordYPuntoPartida;
         }
-        if (y1 >= y2) {
-            yAux = ((y1 - y2) / 2) + y2;
+        if (coordYPuntoPartida >= coordYDestino) {
+            yAux = ((coordYPuntoPartida - coordYDestino) / 2) + coordYDestino;
         }
+        
         ((Graphics2D) g).setColor(Color.RED);//PINTANDO TEXTO DE VERTICES(TAMANIO)
         Font fuente = new Font("Monospaced", Font.PLAIN, 11);
         g.setFont(fuente);
-        ((Graphics2D) g).drawString(String.valueOf(tam), xAux, yAux);
+        ((Graphics2D) g).drawString(String.valueOf(distancia), xAux, yAux);
     }
 
     public static void pinta_Camino(Graphics g, int x1, int y1, int x2, int y2, Color color) {

@@ -9,23 +9,24 @@ package Clases;
  *
  * @author Allan
  */
-public class Nodo {
-    private  int nombre ;
-   private boolean visitado ;
-   private boolean etiqueta;
-   private double acumulado; // lleva el acoulado de cada nodo
-   private Nodo Predecesor;
-   
-   public Nodo(){
-       this.nombre =-1;
-       this.visitado = false;
-       this.etiqueta = false;
-       this.Predecesor  = null;
-       this.acumulado =0;       
+public class Vertice {
 
-   }
+    private int nombre;
+    private boolean visitado;
+    private boolean etiqueta;
+    private double acumulado; // lleva el acoulado de cada nodo
+    private Vertice Predecesor;
 
-     public int getNombre() {
+    public Vertice() {
+        this.nombre = -1;
+        this.visitado = false;
+        this.etiqueta = false;
+        this.Predecesor = null;
+        this.acumulado = 0;
+
+    }
+
+    public int getNombre() {
         return nombre;
     }
 
@@ -41,7 +42,7 @@ public class Nodo {
         return acumulado;
     }
 
-    public Nodo getPredecesor() {
+    public Vertice getPredecesor() {
         return Predecesor;
     }
 
@@ -61,8 +62,8 @@ public class Nodo {
         this.acumulado = acomulado;
     }
 
-    public void setPredecesor(Nodo Predecesor) {
+    public void setPredecesor(Vertice Predecesor) {
         this.Predecesor = Predecesor;
     }
-    
+
 }
