@@ -44,7 +44,7 @@ public class Dibujos {
             //((Graphics2D) g).setColor(Color.RED);
             //((Graphics2D) g).drawImage(iconeNave, x, y, null);
 
-            ((Graphics2D) g).setColor(Color.RED);
+            ((Graphics2D) g).setColor(Color.BLACK);
             Font fuente = new Font("Monospaced", Font.BOLD, 19);
             g.setFont(fuente);
             ((Graphics2D) g).drawString(n, x, y);

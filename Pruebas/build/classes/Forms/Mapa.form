@@ -48,13 +48,31 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="LabelMapa" min="-2" pref="947" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="90" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jButton1" min="-2" pref="90" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="LabelMapa" min="-2" pref="947" max="-2" attributes="0"/>
+                          <EmptySpace pref="43" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="cbxSalida" pref="233" max="32767" attributes="0"/>
+                                      <Component id="cbxDestino" max="32767" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="TrzarRuta" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="240" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -63,9 +81,22 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButton1" min="-2" pref="44" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="LabelMapa" pref="594" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="LabelMapa" pref="594" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+                          <Component id="cbxSalida" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                          <Component id="cbxDestino" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                          <Component id="TrzarRuta" min="-2" pref="32" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -90,6 +121,73 @@
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbxSalida">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="15">
+                <StringItem index="0" value="Turrialba"/>
+                <StringItem index="1" value="Juan Vi&#xf1;as"/>
+                <StringItem index="2" value="Cervantes"/>
+                <StringItem index="3" value="Tucurrique"/>
+                <StringItem index="4" value="Cachi"/>
+                <StringItem index="5" value="Birrisito"/>
+                <StringItem index="6" value="Paraiso"/>
+                <StringItem index="7" value="Orosi"/>
+                <StringItem index="8" value="Oreamuno"/>
+                <StringItem index="9" value="Cartago"/>
+                <StringItem index="10" value="Pitahaya"/>
+                <StringItem index="11" value="El tejar"/>
+                <StringItem index="12" value="Tres Rios"/>
+                <StringItem index="13" value="Tierra Blanca"/>
+                <StringItem index="14" value="La fundacion"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxSalidaActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbxDestino">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="15">
+                <StringItem index="0" value="Turrialba"/>
+                <StringItem index="1" value="Juan Vi&#xf1;as"/>
+                <StringItem index="2" value="Cervantes"/>
+                <StringItem index="3" value="Tucurrique"/>
+                <StringItem index="4" value="Cachi"/>
+                <StringItem index="5" value="Birrisito"/>
+                <StringItem index="6" value="Paraiso"/>
+                <StringItem index="7" value="Orosi"/>
+                <StringItem index="8" value="Oreamuno"/>
+                <StringItem index="9" value="Cartago"/>
+                <StringItem index="10" value="Pitahaya"/>
+                <StringItem index="11" value="El tejar"/>
+                <StringItem index="12" value="Tres Rios"/>
+                <StringItem index="13" value="Tierra Blanca"/>
+                <StringItem index="14" value="La fundacion"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxDestinoActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JButton" name="TrzarRuta">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Ir"/>
+            <Property name="actionCommand" type="java.lang.String" value="btnBuscarRuta"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TrzarRutaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
