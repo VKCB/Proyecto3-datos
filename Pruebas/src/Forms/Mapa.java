@@ -32,6 +32,9 @@ public class Mapa extends javax.swing.JFrame {
         cbxDestino.setEnabled(false);
         cbxSalida.setEnabled(false);
         TrzarRuta.setEnabled(false);
+        cbxRetrasos.setEditable(false);
+        jPTiempos.setVisible(false);
+        
     }
 
     /**
@@ -49,11 +52,15 @@ public class Mapa extends javax.swing.JFrame {
         cbxSalida = new javax.swing.JComboBox<>();
         cbxDestino = new javax.swing.JComboBox<>();
         TrzarRuta = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jlTiempo = new javax.swing.JLabel();
+        cbxRetrasos = new javax.swing.JComboBox<>();
+        jPTiempos = new javax.swing.JPanel();
+        txtTestimado = new javax.swing.JTextField();
+        tituloConretraso = new javax.swing.JLabel();
+        txtTiempo = new javax.swing.JTextField();
+        tituloSinretraso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
@@ -94,10 +101,6 @@ public class Mapa extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField1.setText("0");
-        jTextField1.setToolTipText("");
-
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel1.setText("Lugar de Origen");
 
@@ -105,45 +108,81 @@ public class Mapa extends javax.swing.JFrame {
         jLabel2.setText("Lugar de Destino");
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
-        jLabel3.setText("Tiempo de Retrasos");
+        jLabel3.setText("Retrasos");
 
-        jlTiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlTiempo.setText("0");
+        cbxRetrasos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presa", "Semaforo", "Choque", "Accidente", "Animales en la carretera", "Derrumbe" }));
+
+        jPTiempos.setBackground(new java.awt.Color(102, 102, 102));
+
+        txtTestimado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtTestimado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTestimado.setText("0");
+
+        tituloConretraso.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        tituloConretraso.setText("Tiempo estimado");
+
+        txtTiempo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtTiempo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTiempo.setText("0");
+        txtTiempo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTiempoActionPerformed(evt);
+            }
+        });
+
+        tituloSinretraso.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        tituloSinretraso.setText("Tiempo sin retrasos");
+
+        javax.swing.GroupLayout jPTiemposLayout = new javax.swing.GroupLayout(jPTiempos);
+        jPTiempos.setLayout(jPTiemposLayout);
+        jPTiemposLayout.setHorizontalGroup(
+            jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPTiemposLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTestimado, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloConretraso)
+                    .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloSinretraso))
+                .addContainerGap(71, Short.MAX_VALUE))
+        );
+        jPTiemposLayout.setVerticalGroup(
+            jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPTiemposLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(tituloSinretraso)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tituloConretraso)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtTestimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelMapa, javax.swing.GroupLayout.PREFERRED_SIZE, 947, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2)
-                                    .addComponent(cbxSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(13, 13, 13))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TrzarRuta)
-                                .addGap(91, 91, 91)))
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2)
+                        .addComponent(cbxSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbxRetrasos, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel3)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cbxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3))
-                            .addContainerGap()))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jlTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
+                            .addGap(83, 83, 83)
+                            .addComponent(TrzarRuta)))
+                    .addComponent(jPTiempos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,12 +204,13 @@ public class Mapa extends javax.swing.JFrame {
                         .addComponent(cbxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxRetrasos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
-                        .addComponent(jlTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPTiempos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -277,10 +317,11 @@ public class Mapa extends javax.swing.JFrame {
      */
     private void TrzarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrzarRutaActionPerformed
 
-        int origen = 0, destino = 0;
-        String nombreOrigen, nombreDestino;
+        int origen = 0, destino = 0, retrasos = 0;
+        String nombreOrigen, nombreDestino, nombreRetrasos;
         nombreOrigen = (String) cbxSalida.getSelectedItem();
         nombreDestino = (String) cbxDestino.getSelectedItem();
+        nombreRetrasos = (String) cbxRetrasos.getSelectedItem();
         
         
         if ("Turrialba".equals(nombreOrigen)) {
@@ -377,6 +418,28 @@ public class Mapa extends javax.swing.JFrame {
         if ("La Fundacion".equals(nombreDestino)) {
             destino = 14;
         }
+        //Presa, Semaforo, Choque, Accidente, Animales en la carretera, Derrumbe
+        if ("Presa".equals(nombreRetrasos)) {
+            retrasos = 15;
+        }
+        if ("Semaforo".equals(nombreRetrasos)) {
+            retrasos = 3;
+        }
+        if ("Choque".equals(nombreRetrasos)) {
+            retrasos = 20;
+        }
+        if ("Accidente".equals(nombreRetrasos)) {
+            retrasos = 40;
+        }
+        if ("Animales en la carretera".equals(nombreRetrasos)) {
+            retrasos = 10;
+        }
+        if ("Derrumbe".equals(nombreRetrasos)) {
+            retrasos = 25;
+        }
+        
+        //Se hacen visibles los camos
+        jPTiempos.setVisible(true);
         
         if (origen == destino) {
             Font fuente = new Font("Arial", Font.BOLD, 18);
@@ -395,13 +458,9 @@ public class Mapa extends javax.swing.JFrame {
             }
 
             Font fuente = new Font("Arial", Font.BOLD, 18);
-            //txtKMAcumulados.setFont(fuente);
-            //txtKMAcumulados.setText("No hay ningun error :)");
-            //txtKMAcumulados.setForeground(Color.BLUE);
-            //txtKMAcumulados.setEnabled(false);
-            
-            //kmRecorridos.setText(Dijkstra.getAcumulado() + " KM");
-            jlTiempo.setText(Dijkstra.getAcumulado() + " MIN");
+     
+            txtTiempo.setText(Dijkstra.getAcumulado() + " MIN");
+            txtTestimado.setText( Dijkstra.getAcumulado()+ retrasos+ " MIN");
         }
         
     }//GEN-LAST:event_TrzarRutaActionPerformed
@@ -412,7 +471,12 @@ public class Mapa extends javax.swing.JFrame {
 
     private void cbxDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDestinoActionPerformed
         TrzarRuta.setEnabled(true);
+        cbxRetrasos.setEnabled(true);
     }//GEN-LAST:event_cbxDestinoActionPerformed
+
+    private void txtTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTiempoActionPerformed
     
     
     /**
@@ -454,13 +518,17 @@ public class Mapa extends javax.swing.JFrame {
     public static javax.swing.JLabel LabelMapa;
     private javax.swing.JButton TrzarRuta;
     private javax.swing.JComboBox<String> cbxDestino;
+    public javax.swing.JComboBox<String> cbxRetrasos;
     private javax.swing.JComboBox<String> cbxSalida;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    public javax.swing.JPanel jPTiempos;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    public javax.swing.JLabel jlTiempo;
+    private javax.swing.JLabel tituloConretraso;
+    private javax.swing.JLabel tituloSinretraso;
+    public javax.swing.JTextField txtTestimado;
+    public javax.swing.JTextField txtTiempo;
     // End of variables declaration//GEN-END:variables
 }
