@@ -32,7 +32,7 @@ public class Mapa extends javax.swing.JFrame {
         cbxDestino.setEnabled(false);
         cbxSalida.setEnabled(false);
         TrzarRuta.setEnabled(false);
-        cbxRetrasos.setEditable(false);
+        cbxRetrasos.setEnabled(false);
         jPTiempos.setVisible(false);
         
     }
