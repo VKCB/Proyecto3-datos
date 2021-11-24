@@ -1,21 +1,21 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package VENTANAS;
 
 /**
  *
- * @author Valerine
+ * @author lujor
  */
 public class Interfaz extends javax.swing.JFrame {
 
     /**
-     * Creates new form Interfaz
+     * Creates new form Interfaz2
      */
     public Interfaz() {
         initComponents();
-        this.setLocationRelativeTo(null);// Pone la interfaz al centro de la pantalla
     }
 
     /**
@@ -27,56 +27,88 @@ public class Interfaz extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        VentanaInicial = new javax.swing.JPanel();
+        jButtonAyuda = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
         jLabelLogo = new javax.swing.JLabel();
-        jLabelFondo = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setTitle("MainForm");
+        setName("MainFrame"); // NOI18N
+        setPreferredSize(new java.awt.Dimension(870, 470));
+        setResizable(false);
+        setSize(new java.awt.Dimension(840, 430));
+        getContentPane().setLayout(null);
+
+        jButtonAyuda.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonAyuda.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButtonAyuda.setForeground(new java.awt.Color(204, 204, 204));
+        jButtonAyuda.setText("Ayuda");
+        jButtonAyuda.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jButtonAyuda.setPreferredSize(new java.awt.Dimension(77, 25));
+        jButtonAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAyudaActionPerformed(evt);
+            }
+        });
 
         jButtonSalir.setBackground(new java.awt.Color(0, 0, 0));
         jButtonSalir.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButtonSalir.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSalir.setForeground(new java.awt.Color(204, 204, 204));
         jButtonSalir.setText("Salir");
+        jButtonSalir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
+        jButtonSalir.setPreferredSize(new java.awt.Dimension(77, 25));
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 390, 73, -1));
 
         jLabelLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/LOGO (2).png"))); // NOI18N
-        getContentPane().add(jLabelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 340, 130));
 
-        jLabelFondo.setBackground(new java.awt.Color(255, 255, 255));
-        jLabelFondo.setForeground(new java.awt.Color(255, 255, 255));
-        jLabelFondo.setText("jLabelFondo");
-        getContentPane().add(jLabelFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-32, -11, 840, 430));
+        javax.swing.GroupLayout VentanaInicialLayout = new javax.swing.GroupLayout(VentanaInicial);
+        VentanaInicial.setLayout(VentanaInicialLayout);
+        VentanaInicialLayout.setHorizontalGroup(
+            VentanaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VentanaInicialLayout.createSequentialGroup()
+                .addContainerGap(456, Short.MAX_VALUE)
+                .addGroup(VentanaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaInicialLayout.createSequentialGroup()
+                        .addComponent(jButtonAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VentanaInicialLayout.createSequentialGroup()
+                        .addComponent(jLabelLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))))
+        );
+        VentanaInicialLayout.setVerticalGroup(
+            VentanaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VentanaInicialLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabelLogo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                .addGroup(VentanaInicialLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
+        );
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Ayuda");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 390, -1, -1));
+        getContentPane().add(VentanaInicial);
+        VentanaInicial.setBounds(0, 0, 840, 430);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-    
-        System.exit(0); //Boton salir cierre el programa
-    }//GEN-LAST:event_jButtonSalirActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAyudaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonAyudaActionPerformed
+
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_jButtonSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -104,6 +136,7 @@ public class Interfaz extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Interfaz.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -114,9 +147,9 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel VentanaInicial;
+    private javax.swing.JButton jButtonAyuda;
     private javax.swing.JButton jButtonSalir;
-    private javax.swing.JLabel jLabelFondo;
     private javax.swing.JLabel jLabelLogo;
     // End of variables declaration//GEN-END:variables
 }
