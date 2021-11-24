@@ -137,10 +137,10 @@
                 <StringItem index="8" value="Oreamuno"/>
                 <StringItem index="9" value="Cartago"/>
                 <StringItem index="10" value="Pitahaya"/>
-                <StringItem index="11" value="El tejar"/>
+                <StringItem index="11" value="El Tejar"/>
                 <StringItem index="12" value="Tres Rios"/>
                 <StringItem index="13" value="Tierra Blanca"/>
-                <StringItem index="14" value="La fundacion"/>
+                <StringItem index="14" value="La Fundacion"/>
               </StringArray>
             </Property>
           </Properties>
@@ -166,10 +166,10 @@
                 <StringItem index="8" value="Oreamuno"/>
                 <StringItem index="9" value="Cartago"/>
                 <StringItem index="10" value="Pitahaya"/>
-                <StringItem index="11" value="El tejar"/>
+                <StringItem index="11" value="El Tejar"/>
                 <StringItem index="12" value="Tres Rios"/>
                 <StringItem index="13" value="Tierra Blanca"/>
-                <StringItem index="14" value="La fundacion"/>
+                <StringItem index="14" value="La Fundacion"/>
               </StringArray>
             </Property>
           </Properties>

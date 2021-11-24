@@ -91,13 +91,13 @@ public class Dibujos {
     }
 //Pintando nodos que son recorridos
 
-    public static void seleccionNodo(Graphics g, int x, int y, String n, Color co) {
+    public static void seleccionNodo(Graphics g, int coordXOrigen, int coordYOrigen, Color color) {
 
-        ((Graphics2D) g).setColor(co);
-        ((Graphics2D) g).setStroke(new BasicStroke(3));//leda el grosor del contorno al circulo        
-        ((Graphics2D) g).fillOval(x, y, 15, 15);//tamanio del circulo
+        ((Graphics2D) g).setColor(color);
+        ((Graphics2D) g).setStroke(new BasicStroke(3));// da el grosor del contorno al circulo        
+        ((Graphics2D) g).fillOval(coordXOrigen, coordYOrigen, 15, 15);//tamaño del circulo
         ((Graphics2D) g).setColor(Color.GREEN);
-        ((Graphics2D) g).drawOval(x, y, 15, 15);
+        ((Graphics2D) g).drawOval(coordXOrigen, coordYOrigen, 15, 15);
 
     }
 

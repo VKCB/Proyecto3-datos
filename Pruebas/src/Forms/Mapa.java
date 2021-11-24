@@ -22,7 +22,7 @@ public class Mapa extends javax.swing.JFrame {
     
     private int NumVertices = 0;//Numero de nodos o vertices (lugares) 
     
-    DatosGraficos datosGráficos = new DatosGraficos();
+    DatosGraficos datosGraficos = new DatosGraficos();
 
     /**
      * Creates new form Mapa
@@ -64,14 +64,14 @@ public class Mapa extends javax.swing.JFrame {
         LabelMapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mapaCartago.jpg"))); // NOI18N
         LabelMapa.setText("jLabel1");
 
-        cbxSalida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachi", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "El tejar", "Tres Rios", "Tierra Blanca", "La fundacion" }));
+        cbxSalida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachi", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "El Tejar", "Tres Rios", "Tierra Blanca", "La Fundacion" }));
         cbxSalida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxSalidaActionPerformed(evt);
             }
         });
 
-        cbxDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachi", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "El tejar", "Tres Rios", "Tierra Blanca", "La fundacion" }));
+        cbxDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachi", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "El Tejar", "Tres Rios", "Tierra Blanca", "La Fundacion" }));
         cbxDestino.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxDestinoActionPerformed(evt);
@@ -189,23 +189,23 @@ public class Mapa extends javax.swing.JFrame {
 
         int coordenadasX[] = {890, 710, 570, 800, 570, 480, 400, 470, 320, 235, 280,  200,  60,  350,  190};
         int coordenadasY[] = {95,  135, 170, 300, 370, 260, 280, 480, 215, 240, 290,  280,  135,  85,  335};
-             String nom[] =  {"Turri", "Juan Viñas", "Cervantes", "Tucurrique", "Cachí", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "Tejar", "Tres Rios", "Tierra Blanca", "La Fundacion"};
+             String nom[] =  {"Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachí", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "Tejar", "Tres Ríos", "Tierra Blanca", "La Fundacion"};
       
         for (int j = 0; j < 15; j++) {
-            datosGráficos.setCoordeX(j, coordenadasX[j]);
-            datosGráficos.setCoordeY(j, coordenadasY[j]);
-            datosGráficos.setNombre(j, nom[j]);
+            datosGraficos.setCoordeX(j, coordenadasX[j]);
+            datosGraficos.setCoordeY(j, coordenadasY[j]);
+            datosGraficos.setNombre(j, nom[j]);
 
         }
         for (int j = 0; j < 15; j++) {
             for (int k = 0; k < 15; k++) {
-                datosGráficos.setmAdyacencia(j, k, MatrizAdyacencia[j][k]);
-                datosGráficos.setmDistancias(j, k, distancias[j][k]);
+                datosGraficos.setmAdyacencia(j, k, MatrizAdyacencia[j][k]);
+                datosGraficos.setmDistancias(j, k, distancias[j][k]);
             }
         }
         NumVertices = 15;
         try { 
-            PintarRutas(NumVertices, datosGráficos);
+            PintarRutas(NumVertices, datosGraficos);
         } catch (IOException ex) {
             Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -234,8 +234,8 @@ public class Mapa extends javax.swing.JFrame {
 
         int origen = 0, destino = 0;
         String nombreOrigen, nombreDestino;
-        nombreOrigen = (String) cbxDestino.getSelectedItem();
-        nombreDestino = (String) cbxSalida.getSelectedItem();
+        nombreOrigen = (String) cbxSalida.getSelectedItem();
+        nombreDestino = (String) cbxDestino.getSelectedItem();
         
         
         if ("Turrialba".equals(nombreOrigen)) {
@@ -280,7 +280,7 @@ public class Mapa extends javax.swing.JFrame {
         if ("Tierra Blanca".equals(nombreOrigen)) {
             origen = 13;
         }
-        if ("La funcacion".equals(nombreOrigen)) {
+        if ("La Fundacion".equals(nombreOrigen)) {
             origen = 14;
         }
  
@@ -329,20 +329,20 @@ public class Mapa extends javax.swing.JFrame {
         if ("Tierra Blanca".equals(nombreDestino)) {
             destino = 13;
         }
-        if ("La funcacion".equals(nombreDestino)) {
+        if ("La Fundacion".equals(nombreDestino)) {
             destino = 14;
         }
         
         if (origen == destino) {
             Font fuente = new Font("Arial", Font.BOLD, 18);
             //txtKMAcumulados.setFont(fuente);
-            JOptionPane.showMessageDialog(null, "Estas en:" + nombreOrigen);
+            JOptionPane.showMessageDialog(null, "Estás en:" + nombreOrigen+"!");
             //txtKMAcumulados.setText("Intenta de nuevo!!");
             //txtKMAcumulados.setEnabled(false);
             //txtKMAcumulados.setForeground(Color.RED);
 
         } else {
-            AlgoritmoDijkstra Dijkstra = new AlgoritmoDijkstra(datosGráficos, NumVertices, origen, destino);
+            AlgoritmoDijkstra Dijkstra = new AlgoritmoDijkstra(datosGraficos, NumVertices, origen, destino);
             try {
                 Dijkstra.dijkstra();
             } catch (IOException ex) {

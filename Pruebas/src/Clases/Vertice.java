@@ -14,13 +14,13 @@ public class Vertice {
     private int nombre;
     private boolean visitado;
     private boolean etiqueta;
-    private double acumulado; // lleva el acoulado de cada nodo
+    private double acumulado; // lleva el acomulado de cada nodo
     private Vertice Predecesor;
 
     public Vertice() {
         this.nombre = -1;
         this.visitado = false;
-        this.etiqueta = false;
+        this.etiqueta = false; // la etiqueta de un vertice es verdadera cuando es el lugar de origen, utilizada para diferenciar el origen de los demás vertices
         this.Predecesor = null;
         this.acumulado = 0;
 
