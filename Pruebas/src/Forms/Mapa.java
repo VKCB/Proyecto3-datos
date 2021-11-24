@@ -53,6 +53,7 @@ public class Mapa extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jlTiempo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
@@ -106,6 +107,9 @@ public class Mapa extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         jLabel3.setText("Tiempo de Retrasos");
 
+        jlTiempo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlTiempo.setText("0");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -118,16 +122,17 @@ public class Mapa extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(TrzarRuta)
-                                .addGap(91, 91, 91))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel2)
                                     .addComponent(cbxSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(13, 13, 13)))
+                                .addGap(13, 13, 13))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(TrzarRuta)
+                                .addGap(91, 91, 91)))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(cbxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,7 +140,10 @@ public class Mapa extends javax.swing.JFrame {
                             .addContainerGap()))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))))
+                        .addGap(19, 19, 19))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jlTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -159,6 +167,8 @@ public class Mapa extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(jlTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -206,21 +216,21 @@ public class Mapa extends javax.swing.JFrame {
         };
 
         double distancias[][] = {
-            {0, 11.8, 0, 24.7, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},        // 1
-            {11.8, 0, 12.1, 0, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},        // 2
-            {0, 12.1, 0, 0, 0, 7.7, 0, 0, 0,  0,  0,  0,  0,  17.1,  0},      // 3
-            {24.7, 0, 0, 0, 17.5, 23.9, 0, 0, 0,  0,  0,  0,  0,  0,  0},     // 4
-            {0, 0, 0, 17.5, 0, 10.4, 11.2, 11.4, 0,  0,  0,  0,  0,  0,  0},  // 5
-            {0, 0, 7.7, 23.9, 10.4, 0, 4.7, 0, 0,  0,  0,  0,  0,  17.7,  0}, // 6
-            {0, 0, 0, 0, 11.2, 4.7, 0, 9.5, 6.2,  6.6,  0,  0,  0,  0,  0},   // 7
-            {0, 0, 0, 0, 11.4, 0, 9.5, 0, 0,  0,  0,  20.1,  0,  0,  0},      // 8
-            {0, 0, 0, 0, 0, 0, 6.2, 0, 0,  1.9,  0,  0,  13.9,  7.7,  0},     // 9
-            {0, 0, 0, 0, 0, 0, 6.6, 0, 1.9,  0,  2.8,  0,  13.1,  0,  0},     // 10
-            {0, 0, 0, 0, 0, 0, 0, 0, 0,  2.8,  0,  3.3,  0,  0,  0},          // 11
-            {0, 0, 0, 0, 0, 0, 0, 20.1, 0,  0,  3.3,  0,  13.4,  0,  1.5},    // 12
-            {0, 0, 0, 0, 0, 0, 0, 0, 13.9,  13.1,  0,  13.4,  0,  16.6,  0},  // 13
-            {0, 0, 17.1, 0, 0, 17.7, 0, 0, 7.7,  0,  0,  0,  16.6,  0,  0},   // 14
-            {0, 0, 0, 0, 0, 0, 0, 0, 0,  0,  0,  1.5,  0,  0,  0},};          // 15
+            {0, 8.9, 0, 18.5, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},
+            {8.9, 0, 9.2, 0, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},
+            {0, 9.2, 0, 0, 0, 5.8, 0, 0, 0,  0,  0,  0,  0,  12.8,  0},
+            {18.5, 0, 0, 0, 13.1, 17.9, 0, 0, 0,  0,  0,  0,  0,  0,  0},
+            {0, 0, 0, 13.1, 0, 7.8, 8.4, 8.6, 0,  0,  0,  0,  0,  0,  0},
+            {0, 0, 5.8, 17.9, 7.8, 0, 3.5, 0, 0,  0,  0,  0,  0,  13.3,  0},
+            {0, 0, 0, 0, 8.4, 3.5, 0, 7.1, 4.7,  5,  0,  0,  0,  0,  0},
+            {0, 0, 0, 0, 8.6, 0, 7.1, 0, 0,  0,  0,  15.1,  0,  0,  0},
+            {0, 0, 0, 0, 0, 0, 4.7, 0, 0,  1.4,  0,  0,  10.4,  5.8,  0},
+            {0, 0, 0, 0, 0, 0, 5, 0, 1.4,  0,  2.1,  0,  10,  0,  0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0,  2.1,  0,  2.5,  0,  0,  0},
+            {0, 0, 0, 0, 0, 0, 0, 15.1, 0,  0,  2.5,  0,  10.1,  0,  1.2},
+            {0, 0, 0, 0, 0, 0, 0, 0, 10.4,  9.8,  0,  10.1,  0,  12.5,  0},
+            {0, 0, 12.8, 0, 0, 13.3, 0, 0, 5.8,  0,  0,  0,  12.5,  0,  0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0,  0,  0,  1.2,  0,  0,  0}};         // 15
 
         int coordenadasX[] = {890, 710, 570, 800, 570, 480, 400, 470, 320, 235, 280,  200,  60,  350,  190};
         int coordenadasY[] = {95,  135, 170, 300, 370, 260, 280, 480, 215, 240, 290,  280,  135,  85,  335};
@@ -391,6 +401,7 @@ public class Mapa extends javax.swing.JFrame {
             //txtKMAcumulados.setEnabled(false);
             
             //kmRecorridos.setText(Dijkstra.getAcumulado() + " KM");
+            jlTiempo.setText(Dijkstra.getAcumulado() + " MIN");
         }
         
     }//GEN-LAST:event_TrzarRutaActionPerformed
@@ -450,5 +461,6 @@ public class Mapa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
+    public javax.swing.JLabel jlTiempo;
     // End of variables declaration//GEN-END:variables
 }
