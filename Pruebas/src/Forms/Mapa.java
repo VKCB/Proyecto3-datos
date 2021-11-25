@@ -244,10 +244,10 @@ public class Mapa extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPTiempos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPTiempos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(109, 109, 109)
+                                .addGap(104, 104, 104)
                                 .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(52, Short.MAX_VALUE))))
         );
@@ -256,11 +256,11 @@ public class Mapa extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPTiempos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(174, 174, 174))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -346,7 +346,7 @@ public class Mapa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_ButtonMostrarActionPerformed
 
-        // Dibuja lineas que representan las rutas posibles que el usuario puede escoger
+        // Dibuja lineas que representan las rutas posibles que el usuario puede escorer
     public static void PintarRutas(int numVertices, DatosGraficos arboles) throws IOException {// pinta todas las rutas en el mapa a escoger
         for (int j = 0; j < numVertices; j++) {
             for (int k = 0; k < numVertices; k++) {
@@ -469,6 +469,7 @@ public class Mapa extends javax.swing.JFrame {
             destino = 14;
         }
         //Presa, Semaforo, Choque, Accidente, Animales en la carretera, Derrumbe
+        //combobox de tiempo de retrasos
         if ("Presa".equals(nombreRetrasos)) {
             retrasos = 15;
         }
@@ -493,11 +494,10 @@ public class Mapa extends javax.swing.JFrame {
         
         if (origen == destino) {
             Font fuente = new Font("Arial", Font.BOLD, 18);
-            //txtKMAcumulados.setFont(fuente);
             JOptionPane.showMessageDialog(null, "Estás en:" + nombreOrigen+"!");
-            //txtKMAcumulados.setText("Intenta de nuevo!!");
-            //txtKMAcumulados.setEnabled(false);
-            //txtKMAcumulados.setForeground(Color.RED);
+            
+            jPTiempos.setVisible(false);
+
 
         } else {
             AlgoritmoDijkstra Dijkstra = new AlgoritmoDijkstra(datosGraficos, NumVertices, origen, destino);

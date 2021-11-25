@@ -12,6 +12,9 @@ import static Forms.Mapa.LabelMapa;
 import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;
+import java.awt.Graphics2D;
+import java.io.File;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -51,12 +54,18 @@ public class AlgoritmoDijkstra {
         {
             nodo[i] = new Vertice();
         }
-        Color color = new Color(138,90,26);
+        //Color color = new Color(138,90,26);
+        Color color = new Color(64,0,128);
+        //Datos de la imagen de salida
+        File archImg1 = new File("ubicacion.png");
+        Image imagen1 = ImageIO.read(archImg1);
         LabelMapa.paint(LabelMapa.getGraphics());
         PintarRutas(numVertices, datosGraficos);
         Dibujos.seleccionNodo(LabelMapa.getGraphics(),
                 datosGraficos.getCoordeX(Origen),
-                datosGraficos.getCoordeY(Origen), Color.GREEN,color); //  se pinta de color el nodo de Origen
+                datosGraficos.getCoordeY(Origen), Color.YELLOW,color); //  se pinta de color el nodo de Origen
+        //Pintamos la imagen en el mapa
+        ((Graphics2D) LabelMapa.getGraphics()).drawImage(imagen1, datosGraficos.getCoordeX(Origen), datosGraficos.getCoordeY(Origen), 65, 65, null);
 
         nodo[Origen].setVisitado(true); // un objeto de tipo Vertice
         nodo[Origen].setNombre(Origen); // un objeto de tipo Vertice
@@ -101,6 +110,9 @@ public class AlgoritmoDijkstra {
 
         Nodoauxiliar = nodo[destino];
         color = new Color(64,0,128);
+        //Unicacion de la imagen de llagada
+        File archImg3 = new File("destino.png");
+        Image imagen3 = ImageIO.read(archImg3);
         //Pintando caminos recorridos
         while (Nodoauxiliar.getPredecesor() != null) {
             Dibujos.pinta_Camino(LabelMapa.getGraphics(),
@@ -115,9 +127,12 @@ public class AlgoritmoDijkstra {
             Nodoauxiliar = Nodoauxiliar.getPredecesor();
         }//fin de while Recorriendo caminos
         color = new Color(93,93,93);
-        Dibujos.seleccionNodo(LabelMapa.getGraphics(),
+        /*Dibujos.seleccionNodo(LabelMapa.getGraphics(),
                 datosGraficos.getCoordeX(destino),
-                datosGraficos.getCoordeY(destino),Color.RED,color);//Pintando Nodo del destino
+                datosGraficos.getCoordeY(destino),Color.RED,color);//Pintando Nodo del destino*/
+        //Pintamos la imagen en el mapa
+        ((Graphics2D) LabelMapa.getGraphics()).drawImage(imagen3, datosGraficos.getCoordeX(destino), datosGraficos.getCoordeY(destino), 65, 65, null);
+        
 
     }
 

@@ -28,22 +28,14 @@ public class Dibujos {
 
     public static void pinta_localizador(Graphics g, int x, int y, String n) throws IOException {
         try {
-            //g.drawOval(x, y-10, 20, 20);
-            //Toolkit t = Toolkit.getDefaultToolkit ();
+            //Ruta de la imagen
             File archImg = new File("marcador-de-ubicacion.png");
             Image imagen2 = ImageIO.read(archImg);
 
-            //Image imagen = t.getImage("R:\\TEC - II 2021\\Algoritmos y estructura de datos I\\Proyectos\\Proyecto 3\\Proyecto3-datos\\Pruebas\\src\\img\\localizacion.png");
-            //((Graphics2D) g).setColor(Color.RED);
-            //((Graphics2D) g).setStroke(new BasicStroke(3));//leda el grosor al circulo
-            //((Graphics2D) g).drawImage(imagen, x, y,15, 15, null);
-            //((Graphics2D) g).fillOval(x, y, 10, 10);
-            //((Graphics2D) g).setColor(Color.RED);
-            //((Graphics2D) g).drawOval(x, y, 15, 15);
+            //Se pinta la imagen en cada punto
             ((Graphics2D) g).drawImage(imagen2, x, y, 22, 22, null);
-            //((Graphics2D) g).setColor(Color.RED);
-            //((Graphics2D) g).drawImage(iconeNave, x, y, null);
 
+            //Se crean las lineas 
             ((Graphics2D) g).setColor(Color.BLACK);
             Font fuente = new Font("Monospaced", Font.BOLD, 19);
             g.setFont(fuente);
@@ -75,7 +67,8 @@ public class Dibujos {
             yAux = ((coordYPuntoPartida - coordYDestino) / 2) + coordYDestino;
         }
         
-        ((Graphics2D) g).setColor(Color.RED);//PINTANDO TEXTO DE VERTICES(TAMANIO)
+        //Texto de cada vertice
+        ((Graphics2D) g).setColor(Color.RED);
         Font fuente = new Font("Monospaced", Font.PLAIN, 11);
         g.setFont(fuente);
         ((Graphics2D) g).drawString(String.valueOf(distancia), xAux, yAux);
@@ -89,8 +82,7 @@ public class Dibujos {
         g.drawLine(x1 + 10, y1 + 10, x2 + 10, y2 + 10);
 
     }
-//Pintando nodos que son recorridos
-
+    //Pintando nodos que son recorridos
     public static void seleccionNodo(Graphics g, int coordXOrigen, int coordYOrigen, Color colorfILL,Color colorOval) {
 
         ((Graphics2D) g).setColor(colorfILL);
