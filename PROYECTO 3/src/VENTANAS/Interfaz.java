@@ -74,6 +74,11 @@ public class Interfaz extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(204, 204, 204));
         jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         VentanaInicial.add(jButton1);
         jButton1.setBounds(0, 40, 200, 40);
 
@@ -93,6 +98,11 @@ public class Interfaz extends javax.swing.JFrame {
         jButton17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton17.setForeground(new java.awt.Color(204, 204, 204));
         jButton17.setText("Salir");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
         VentanaInicial.add(jButton17);
         jButton17.setBounds(100, 0, 100, 40);
 
@@ -141,18 +151,33 @@ public class Interfaz extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(0, 0, 0));
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setText("Cartago");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton5);
         jButton5.setBounds(180, 380, 160, 40);
 
         jButton6.setBackground(new java.awt.Color(0, 0, 0));
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Cervantes");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton6);
         jButton6.setBounds(340, 300, 160, 40);
 
         jButton7.setBackground(new java.awt.Color(0, 0, 0));
         jButton7.setForeground(new java.awt.Color(255, 255, 255));
         jButton7.setText("Fundaciòn");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton7);
         jButton7.setBounds(340, 340, 160, 40);
 
@@ -170,42 +195,77 @@ public class Interfaz extends javax.swing.JFrame {
         jButton9.setBackground(new java.awt.Color(0, 0, 0));
         jButton9.setForeground(new java.awt.Color(255, 255, 255));
         jButton9.setText("Oreamuno");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton9);
         jButton9.setBounds(500, 300, 160, 40);
 
         jButton10.setBackground(new java.awt.Color(0, 0, 0));
         jButton10.setForeground(new java.awt.Color(255, 255, 255));
         jButton10.setText("Orosi");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton10);
         jButton10.setBounds(500, 340, 160, 40);
 
         jButton11.setBackground(new java.awt.Color(0, 0, 0));
         jButton11.setForeground(new java.awt.Color(255, 255, 255));
         jButton11.setText("Paraìso");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton11);
         jButton11.setBounds(500, 380, 160, 40);
 
         jButton12.setBackground(new java.awt.Color(0, 0, 0));
         jButton12.setForeground(new java.awt.Color(255, 255, 255));
         jButton12.setText("Pitahaya");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton12);
         jButton12.setBounds(660, 300, 160, 40);
 
         jButton13.setBackground(new java.awt.Color(0, 0, 0));
         jButton13.setForeground(new java.awt.Color(255, 255, 255));
         jButton13.setText("Tejar");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton13);
         jButton13.setBounds(660, 340, 160, 40);
 
         jButton14.setBackground(new java.awt.Color(0, 0, 0));
         jButton14.setForeground(new java.awt.Color(255, 255, 255));
         jButton14.setText("Tierra Blanca");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton14);
         jButton14.setBounds(660, 380, 160, 40);
 
         jButton15.setBackground(new java.awt.Color(0, 0, 0));
         jButton15.setForeground(new java.awt.Color(255, 255, 255));
         jButton15.setText("Tres Rios");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton15);
         jButton15.setBounds(820, 300, 160, 40);
 
@@ -223,6 +283,11 @@ public class Interfaz extends javax.swing.JFrame {
         jButton19.setBackground(new java.awt.Color(0, 0, 0));
         jButton19.setForeground(new java.awt.Color(255, 255, 255));
         jButton19.setText("Turrialba");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton19);
         jButton19.setBounds(820, 380, 160, 40);
 
@@ -236,10 +301,13 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(170, 70, 960, 560);
 
-        jPanel3.setBackground(new java.awt.Color(204, 51, 255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(1240, 630));
         jPanel3.setLayout(null);
 
+        jButton21.setBackground(new java.awt.Color(0, 0, 0));
+        jButton21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton21.setForeground(new java.awt.Color(204, 204, 204));
         jButton21.setText("Regresar");
         jButton21.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,13 +315,13 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton21);
-        jButton21.setBounds(600, 570, 79, 23);
+        jButton21.setBounds(960, 550, 130, 50);
 
-        jLabel4.setBackground(new java.awt.Color(204, 0, 204));
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/LOGO (2) (1).png"))); // NOI18N
         jLabel4.setPreferredSize(new java.awt.Dimension(150, 50));
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(50, 20, 1120, 500);
+        jLabel4.setBounds(10, 20, 1230, 610);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -291,31 +359,124 @@ public class Interfaz extends javax.swing.JFrame {
        jPanel1.setVisible(true);
        VentanaInicial.setVisible(false);
     }//GEN-LAST:event_jButton16ActionPerformed
-
+    // Funcion al boton de Tucurrique
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        // TODO add your handling code here:
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Tucurrique.png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton18ActionPerformed
-
+    // Funcion al boton de Juan Viñas
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Juan Viñas.png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
      jPanel3.setVisible(false);
      jPanel1.setVisible(true);
     }//GEN-LAST:event_jButton21ActionPerformed
-
+    // Funcion al boton de Cachi
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Cachi (1).png");
+    jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    // Funcion al boton de Birrisito
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    ImageIcon img = new ImageIcon("fondo-verde.png");
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Birrisito (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+    // Funcion al boton de Turrialba
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Turrialba.png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton19ActionPerformed
+    // Funcion al boton de Paraiso
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Paraiso (1).png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton11ActionPerformed
+    // Funcion al boton de Orosi
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Orosi (1).png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton10ActionPerformed
+    // Funcion al boton de Cartago
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\CartagoC (1).png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
+    // Funcion al boton de Cervantes
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Cervantes (1).png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
+    // Funcion al boton de Fundacion
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Fundacion (1).png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton7ActionPerformed
+    //Funcion al boton de Oreamuno
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Oreamuno (1).png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton9ActionPerformed
+    //Funcion al boton de Pitahaya
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Pitahaya (1).png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton12ActionPerformed
+    //Funcion al boton de Tejar
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Tejar (1).png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
+    }//GEN-LAST:event_jButton13ActionPerformed
+    //Funcion al boton de Tierra blanca
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Tierra Blanca (1).png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true); 
+    }//GEN-LAST:event_jButton14ActionPerformed
+    //Funcion al boton de Tres Rios
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Tres Rios (1).png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true); 
+    }//GEN-LAST:event_jButton15ActionPerformed
+    // Boton Salir
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+     System.exit(0); // Salirse del programa desde el botòn 
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
