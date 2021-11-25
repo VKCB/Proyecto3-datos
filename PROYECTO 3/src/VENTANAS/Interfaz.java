@@ -7,19 +7,35 @@ package VENTANAS;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-
+import Clases.AlgoritmoDijkstra;
+import Clases.DatosGraficos;
+import Clases.Dibujos;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Valerine
  */
 public class Interfaz extends javax.swing.JFrame {
-
+    
+    private int NumVertices = 0;//Numero de nodos o vertices (lugares) 
+    
+    DatosGraficos datosGraficos = new DatosGraficos();
     /**
      * Creates new form Interfaz2
      */
     public Interfaz() {
         initComponents();
+        cbxDestino.setEnabled(false);
+        cbxSalida.setEnabled(false);
+        TrzarRuta.setEnabled(false);
+        cbxRetrasos.setEnabled(false);
+        jPTiempos.setVisible(false);
     }
 
     /**
@@ -55,6 +71,22 @@ public class Interfaz extends javax.swing.JFrame {
         jButton19 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        ButtonMostrar = new javax.swing.JButton();
+        LabelMapa = new javax.swing.JLabel();
+        TrzarRuta = new javax.swing.JButton();
+        jPTiempos = new javax.swing.JPanel();
+        tituloConretraso = new javax.swing.JLabel();
+        tituloSinretraso = new javax.swing.JLabel();
+        txtTiempo = new javax.swing.JLabel();
+        txtTestimado = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        cbxSalida = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        cbxDestino = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
+        cbxRetrasos = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jButton21 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
@@ -62,7 +94,7 @@ public class Interfaz extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MainForm");
         setName("MainFrame"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1255, 677));
+        setPreferredSize(new java.awt.Dimension(1280, 680));
         setResizable(false);
         setSize(new java.awt.Dimension(840, 430));
 
@@ -301,6 +333,207 @@ public class Interfaz extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(170, 70, 960, 560);
 
+        jPanel2.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1268, 671));
+
+        ButtonMostrar.setBackground(new java.awt.Color(153, 153, 153));
+        ButtonMostrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        ButtonMostrar.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgMapa.png"))); // NOI18N
+        ButtonMostrar.setActionCommand("btnVerCaminos");
+        ButtonMostrar.setBorder(null);
+        ButtonMostrar.setBorderPainted(false);
+        ButtonMostrar.setContentAreaFilled(false);
+        ButtonMostrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonMostrar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgMapaBuscar.png"))); // NOI18N
+        ButtonMostrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonMostrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonMostrarMouseExited(evt);
+            }
+        });
+        ButtonMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ButtonMostrarActionPerformed(evt);
+            }
+        });
+
+        LabelMapa.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 51, 51)));
+        LabelMapa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        LabelMapa.setPreferredSize(new java.awt.Dimension(1105, 603));
+
+        TrzarRuta.setBackground(new java.awt.Color(153, 153, 153));
+        TrzarRuta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgLupaPequeña.png"))); // NOI18N
+        TrzarRuta.setActionCommand("btnBuscarRuta");
+        TrzarRuta.setContentAreaFilled(false);
+        TrzarRuta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TrzarRuta.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgLupa.png"))); // NOI18N
+        TrzarRuta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TrzarRutaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TrzarRutaMouseExited(evt);
+            }
+        });
+        TrzarRuta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TrzarRutaActionPerformed(evt);
+            }
+        });
+
+        jPTiempos.setBackground(new java.awt.Color(72, 129, 129));
+
+        tituloConretraso.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        tituloConretraso.setText("Tiempo estimado");
+
+        tituloSinretraso.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        tituloSinretraso.setText("Tiempo sin retrasos");
+
+        txtTiempo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtTiempo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtTiempo.setOpaque(true);
+
+        txtTestimado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtTestimado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtTestimado.setOpaque(true);
+
+        javax.swing.GroupLayout jPTiemposLayout = new javax.swing.GroupLayout(jPTiempos);
+        jPTiempos.setLayout(jPTiemposLayout);
+        jPTiemposLayout.setHorizontalGroup(
+            jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPTiemposLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tituloConretraso)
+                .addGap(66, 66, 66))
+            .addGroup(jPTiemposLayout.createSequentialGroup()
+                .addGroup(jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPTiemposLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(tituloSinretraso))
+                    .addGroup(jPTiemposLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTestimado, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(txtTiempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        jPTiemposLayout.setVerticalGroup(
+            jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPTiemposLayout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addComponent(tituloSinretraso)
+                .addGap(11, 11, 11)
+                .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tituloConretraso)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtTestimado, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15))
+        );
+
+        jPanel4.setBackground(new java.awt.Color(71, 141, 141));
+
+        jLabel5.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel5.setText("Lugar de Origen");
+
+        cbxSalida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachi", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "El Tejar", "Tres Rios", "Tierra Blanca", "La Fundacion" }));
+        cbxSalida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxSalidaActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel6.setText("Lugar de Destino");
+
+        cbxDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachi", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "El Tejar", "Tres Rios", "Tierra Blanca", "La Fundacion" }));
+        cbxDestino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxDestinoActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel7.setText("Retrasos");
+
+        cbxRetrasos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Presa", "Semaforo", "Choque", "Accidente", "Animales en la carretera", "Derrumbe" }));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(cbxSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(cbxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(cbxRetrasos, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxDestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxRetrasos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(LabelMapa, javax.swing.GroupLayout.PREFERRED_SIZE, 947, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPTiempos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(104, 104, 104)
+                                .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(ButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(40, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(ButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jPTiempos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(LabelMapa, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(1240, 630));
         jPanel3.setLayout(null);
@@ -321,7 +554,7 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/LOGO (2) (1).png"))); // NOI18N
         jLabel4.setPreferredSize(new java.awt.Dimension(150, 50));
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(10, 20, 1230, 610);
+        jLabel4.setBounds(80, 20, 1170, 560);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -333,16 +566,17 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(88, 88, 88)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(VentanaInicial, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(VentanaInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -478,6 +712,261 @@ public class Interfaz extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void ButtonMostrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonMostrarMouseEntered
+        // TODO add your handling code here:
+        ButtonMostrar.setOpaque(true);
+    }//GEN-LAST:event_ButtonMostrarMouseEntered
+
+    private void ButtonMostrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonMostrarMouseExited
+        // TODO add your handling code here:
+        ButtonMostrar.setOpaque(false);
+    }//GEN-LAST:event_ButtonMostrarMouseExited
+
+    private void ButtonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMostrarActionPerformed
+        LabelMapa.paint(LabelMapa.getGraphics());
+        cbxSalida.setEnabled(true);
+
+        int MatrizAdyacencia[][] = {
+            {0, 1, 0, 1, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0}, // 1
+            {1, 0, 1, 0, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0}, // 2
+            {0, 1, 0, 0, 0, 1, 0, 0, 0,  0,  0,  0,  0,  1,  0}, // 3
+            {1, 0, 0, 0, 1, 1, 0, 0, 0,  0,  0,  0,  0,  0,  0}, // 4
+            {0, 0, 0, 1, 0, 1, 1, 1, 0,  0,  0,  0,  0,  0,  0}, // 5
+            {0, 0, 1, 1, 1, 0, 1, 0, 0,  0,  0,  0,  0,  1,  0}, // 6
+            {0, 0, 0, 0, 1, 1, 0, 1, 1,  1,  0,  0,  0,  0,  0}, // 7
+            {0, 0, 0, 0, 1, 0, 1, 0, 0,  0,  0,  1,  0,  0,  0}, // 8
+            {0, 0, 0, 0, 0, 0, 1, 0, 0,  1,  0,  0,  1,  1,  0}, // 9
+            {0, 0, 0, 0, 0, 0, 1, 0, 1,  0,  1,  0,  1,  0,  0}, // 10
+            {0, 0, 0, 0, 0, 0, 0, 0, 0,  1,  0,  1,  0,  0,  0}, // 11
+            {0, 0, 0, 0, 0, 0, 0, 1, 0,  0,  1,  0,  1,  0,  1}, // 12
+            {0, 0, 0, 0, 0, 0, 0, 0, 1,  1,  0,  1,  0,  1,  0}, // 13
+            {0, 0, 1, 0, 0, 1, 0, 0, 1,  0,  0,  0,  1,  0,  0}, // 14
+            {0, 0, 0, 0, 0, 0, 0, 0, 0,  0,  0,  1,  0,  0,  0}  // 15
+        };
+
+        double distancias[][] = {
+            {0, 8.9, 0, 18.5, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},
+            {8.9, 0, 9.2, 0, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},
+            {0, 9.2, 0, 0, 0, 5.8, 0, 0, 0,  0,  0,  0,  0,  12.8,  0},
+            {18.5, 0, 0, 0, 13.1, 17.9, 0, 0, 0,  0,  0,  0,  0,  0,  0},
+            {0, 0, 0, 13.1, 0, 7.8, 8.4, 8.6, 0,  0,  0,  0,  0,  0,  0},
+            {0, 0, 5.8, 17.9, 7.8, 0, 3.5, 0, 0,  0,  0,  0,  0,  13.3,  0},
+            {0, 0, 0, 0, 8.4, 3.5, 0, 7.1, 4.7,  5,  0,  0,  0,  0,  0},
+            {0, 0, 0, 0, 8.6, 0, 7.1, 0, 0,  0,  0,  15.1,  0,  0,  0},
+            {0, 0, 0, 0, 0, 0, 4.7, 0, 0,  1.4,  0,  0,  10.4,  5.8,  0},
+            {0, 0, 0, 0, 0, 0, 5, 0, 1.4,  0,  2.1,  0,  10,  0,  0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0,  2.1,  0,  2.5,  0,  0,  0},
+            {0, 0, 0, 0, 0, 0, 0, 15.1, 0,  0,  2.5,  0,  10.1,  0,  1.2},
+            {0, 0, 0, 0, 0, 0, 0, 0, 10.4,  9.8,  0,  10.1,  0,  12.5,  0},
+            {0, 0, 12.8, 0, 0, 13.3, 0, 0, 5.8,  0,  0,  0,  12.5,  0,  0},
+            {0, 0, 0, 0, 0, 0, 0, 0, 0,  0,  0,  1.2,  0,  0,  0}};         // 15
+
+        int coordenadasX[] = {890, 710, 570, 800, 570, 480, 400, 470, 320, 235, 280,  200,  60,  350,  190};
+        int coordenadasY[] = {95,  135, 170, 300, 370, 260, 280, 480, 215, 240, 290,  280,  135,  85,  335};
+        String nom[] =  {"Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachí", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "Tejar", "Tres Ríos", "Tierra Blanca", "La Fundacion"};
+
+        for (int j = 0; j < 15; j++) {
+            datosGraficos.setCoordeX(j, coordenadasX[j]);
+            datosGraficos.setCoordeY(j, coordenadasY[j]);
+            datosGraficos.setNombre(j, nom[j]);
+
+        }
+        for (int j = 0; j < 15; j++) {
+            for (int k = 0; k < 15; k++) {
+                datosGraficos.setmAdyacencia(j, k, MatrizAdyacencia[j][k]);
+                datosGraficos.setmDistancias(j, k, distancias[j][k]);
+            }
+        }
+        NumVertices = 15;
+        try {
+            PintarRutas(NumVertices, datosGraficos);
+        } catch (IOException ex) {
+            Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ButtonMostrarActionPerformed
+
+    private void TrzarRutaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TrzarRutaMouseEntered
+        // TODO add your handling code here:
+        TrzarRuta.setOpaque(true);
+    }//GEN-LAST:event_TrzarRutaMouseEntered
+
+    private void TrzarRutaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TrzarRutaMouseExited
+        // TODO add your handling code here:
+        TrzarRuta.setOpaque(false);
+    }//GEN-LAST:event_TrzarRutaMouseExited
+
+    private void TrzarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrzarRutaActionPerformed
+
+        int origen = 0, destino = 0, retrasos = 0;
+        String nombreOrigen, nombreDestino, nombreRetrasos;
+        nombreOrigen = (String) cbxSalida.getSelectedItem();
+        nombreDestino = (String) cbxDestino.getSelectedItem();
+        nombreRetrasos = (String) cbxRetrasos.getSelectedItem();
+
+        if ("Turrialba".equals(nombreOrigen)) {
+            origen = 0;
+        }
+        if ("Juan Viñas".equals(nombreOrigen)) {
+            origen = 1;
+        }
+        if ("Cervantes".equals(nombreOrigen)) {
+            origen = 2;
+        }
+        if ("Tucurrique".equals(nombreOrigen)) {
+            origen = 3;
+        }
+        if ("Cachi".equals(nombreOrigen)) {
+            origen = 4;
+        }
+        if ("Birrisito".equals(nombreOrigen)) {
+            origen = 5;
+        }
+        if ("Paraiso".equals(nombreOrigen)) {
+            origen = 6;
+        }
+        if ("Orosi".equals(nombreOrigen)) {
+            origen = 7;
+        }
+        if ("Oreamuno".equals(nombreOrigen)) {
+            origen = 8;
+        }
+        if ("Cartago".equals(nombreOrigen)) {
+            origen = 9;
+        }
+        if ("Pitahaya".equals(nombreOrigen)) {
+            origen = 10;
+        }
+        if ("El Tejar".equals(nombreOrigen)) {
+            origen = 11;
+        }
+        if ("Tres Rios".equals(nombreOrigen)) {
+            origen = 12;
+        }
+        if ("Tierra Blanca".equals(nombreOrigen)) {
+            origen = 13;
+        }
+        if ("La Fundacion".equals(nombreOrigen)) {
+            origen = 14;
+        }
+
+        /*************************************/
+
+        if ("Turrialba".equals(nombreDestino)) {
+            destino = 0;
+        }
+        if ("Juan Viñas".equals(nombreDestino)) {
+            destino = 1;
+        }
+        if ("Cervantes".equals(nombreDestino)) {
+            destino = 2;
+        }
+        if ("Tucurrique".equals(nombreDestino)) {
+            destino = 3;
+        }
+        if ("Cachi".equals(nombreDestino)) {
+            destino = 4;
+        }
+        if ("Birrisito".equals(nombreDestino)) {
+            destino = 5;
+        }
+        if ("Paraiso".equals(nombreDestino)) {
+            destino = 6;
+        }
+        if ("Orosi".equals(nombreDestino)) {
+            destino = 7;
+        }
+        if ("Oreamuno".equals(nombreDestino)) {
+            destino = 8;
+        }
+        if ("Cartago".equals(nombreDestino)) {
+            destino = 9;
+        }
+        if ("Pitahaya".equals(nombreDestino)) {
+            destino = 10;
+        }
+        if ("El Tejar".equals(nombreDestino)) {
+            destino = 11;
+        }
+        if ("Tres Rios".equals(nombreDestino)) {
+            destino = 12;
+        }
+        if ("Tierra Blanca".equals(nombreDestino)) {
+            destino = 13;
+        }
+        if ("La Fundacion".equals(nombreDestino)) {
+            destino = 14;
+        }
+        //Presa, Semaforo, Choque, Accidente, Animales en la carretera, Derrumbe
+        //combobox de tiempo de retrasos
+        if ("Presa".equals(nombreRetrasos)) {
+            retrasos = 15;
+        }
+        if ("Semaforo".equals(nombreRetrasos)) {
+            retrasos = 3;
+        }
+        if ("Choque".equals(nombreRetrasos)) {
+            retrasos = 20;
+        }
+        if ("Accidente".equals(nombreRetrasos)) {
+            retrasos = 40;
+        }
+        if ("Animales en la carretera".equals(nombreRetrasos)) {
+            retrasos = 10;
+        }
+        if ("Derrumbe".equals(nombreRetrasos)) {
+            retrasos = 25;
+        }
+
+        //Se hacen visibles los camos
+        jPTiempos.setVisible(true);
+
+        if (origen == destino) {
+            Font fuente = new Font("Arial", Font.BOLD, 18);
+            JOptionPane.showMessageDialog(null, "Estás en:" + nombreOrigen+"!");
+
+            jPTiempos.setVisible(false);
+
+        } else {
+            AlgoritmoDijkstra Dijkstra = new AlgoritmoDijkstra(datosGraficos, NumVertices, origen, destino);
+            try {
+                Dijkstra.dijkstra();
+            } catch (IOException ex) {
+                Logger.getLogger(Interfaz.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            Font fuente = new Font("Arial", Font.BOLD, 18);
+
+            txtTiempo.setText(Dijkstra.getAcumulado() + " MIN"+" ");
+            txtTestimado.setText( Dijkstra.getAcumulado()+ retrasos+ " MIN"+" ");
+        }
+    }//GEN-LAST:event_TrzarRutaActionPerformed
+
+    private void cbxSalidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxSalidaActionPerformed
+        cbxDestino.setEnabled(true);
+    }//GEN-LAST:event_cbxSalidaActionPerformed
+
+    private void cbxDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxDestinoActionPerformed
+        TrzarRuta.setEnabled(true);
+        cbxRetrasos.setEnabled(true);
+    }//GEN-LAST:event_cbxDestinoActionPerformed
+
+    // Dibuja lineas que representan las rutas posibles que el usuario puede escorer
+    public void PintarRutas(int numVertices, DatosGraficos arboles) throws IOException {// pinta todas las rutas en el mapa a escoger
+        for (int j = 0; j < numVertices; j++) {
+            for (int k = 0; k < numVertices; k++) {
+                if (arboles.getmAdyacencia(j, k) == 1) { //se pinta las líneas
+                    Dibujos.pinta_Rutas(LabelMapa.getGraphics(), arboles.getCoordeX(j), arboles.getCoordeY(j), arboles.getCoordeX(k), arboles.getCoordeY(k), arboles.getmDistancias(j, k));
+                }
+            }
+        }
+        for (int j = 0; j < numVertices; j++) { // se pintan los simbolos de ubicación en cada lugar
+            Dibujos.pinta_localizador(LabelMapa.getGraphics(), arboles.getCoordeX(j), arboles.getCoordeY(j), arboles.getNombre(j));
+            
+        }
+    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -515,7 +1004,13 @@ public class Interfaz extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonMostrar;
+    public javax.swing.JLabel LabelMapa;
+    private javax.swing.JButton TrzarRuta;
     private javax.swing.JPanel VentanaInicial;
+    private javax.swing.JComboBox<String> cbxDestino;
+    private javax.swing.JComboBox<String> cbxRetrasos;
+    private javax.swing.JComboBox<String> cbxSalida;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -540,7 +1035,17 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private static javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPTiempos;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel tituloConretraso;
+    private javax.swing.JLabel tituloSinretraso;
+    private javax.swing.JLabel txtTestimado;
+    private javax.swing.JLabel txtTiempo;
     // End of variables declaration//GEN-END:variables
 }
