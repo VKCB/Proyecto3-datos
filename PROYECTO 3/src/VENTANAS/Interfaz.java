@@ -5,6 +5,10 @@
  */
 package VENTANAS;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
+
 /**
  *
  * @author lujor
@@ -243,12 +247,13 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton21);
-        jButton21.setBounds(950, 90, 79, 23);
+        jButton21.setBounds(600, 570, 79, 23);
 
-        jLabel4.setBackground(new java.awt.Color(0, 255, 255));
-        jLabel4.setText("jLabel4");
+        jLabel4.setBackground(new java.awt.Color(204, 0, 204));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/LOGO (2) (1).png"))); // NOI18N
+        jLabel4.setPreferredSize(new java.awt.Dimension(150, 50));
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(20, 10, 1180, 520);
+        jLabel4.setBounds(50, 20, 1120, 500);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -301,12 +306,15 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-     jPanel1.setVisible(false);
-     jPanel3.setVisible(true);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-     jPanel1.setVisible(false);
+    ImageIcon img = new ImageIcon("fondo-verde.png");
+    jLabel4.setIcon(img);
+    jPanel1.setVisible(false);
+    jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -370,7 +378,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private static javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
