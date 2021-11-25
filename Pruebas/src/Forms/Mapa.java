@@ -47,14 +47,14 @@ public class Mapa extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        ButtonMostrar = new javax.swing.JButton();
         LabelMapa = new javax.swing.JLabel();
         TrzarRuta = new javax.swing.JButton();
         jPTiempos = new javax.swing.JPanel();
-        txtTestimado = new javax.swing.JTextField();
         tituloConretraso = new javax.swing.JLabel();
-        txtTiempo = new javax.swing.JTextField();
         tituloSinretraso = new javax.swing.JLabel();
+        txtTiempo = new javax.swing.JLabel();
+        txtTestimado = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         cbxSalida = new javax.swing.JComboBox<>();
@@ -65,19 +65,31 @@ public class Mapa extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
+        setResizable(false);
 
-        jButton1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgMapa.png"))); // NOI18N
-        jButton1.setActionCommand("btnVerCaminos");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgMapaBuscar.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+
+        ButtonMostrar.setBackground(new java.awt.Color(153, 153, 153));
+        ButtonMostrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        ButtonMostrar.setForeground(new java.awt.Color(255, 255, 255));
+        ButtonMostrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgMapa.png"))); // NOI18N
+        ButtonMostrar.setActionCommand("btnVerCaminos");
+        ButtonMostrar.setBorder(null);
+        ButtonMostrar.setBorderPainted(false);
+        ButtonMostrar.setContentAreaFilled(false);
+        ButtonMostrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ButtonMostrar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgMapaBuscar.png"))); // NOI18N
+        ButtonMostrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ButtonMostrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ButtonMostrarMouseExited(evt);
+            }
+        });
+        ButtonMostrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ButtonMostrarActionPerformed(evt);
             }
         });
 
@@ -86,11 +98,20 @@ public class Mapa extends javax.swing.JFrame {
         LabelMapa.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 51, 51)));
         LabelMapa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
+        TrzarRuta.setBackground(new java.awt.Color(153, 153, 153));
         TrzarRuta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgLupaPequeña.png"))); // NOI18N
         TrzarRuta.setActionCommand("btnBuscarRuta");
         TrzarRuta.setContentAreaFilled(false);
         TrzarRuta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         TrzarRuta.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgLupa.png"))); // NOI18N
+        TrzarRuta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                TrzarRutaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                TrzarRutaMouseExited(evt);
+            }
+        });
         TrzarRuta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TrzarRutaActionPerformed(evt);
@@ -99,55 +120,51 @@ public class Mapa extends javax.swing.JFrame {
 
         jPTiempos.setBackground(new java.awt.Color(72, 129, 129));
 
-        txtTestimado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtTestimado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtTestimado.setText("0");
-
         tituloConretraso.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         tituloConretraso.setText("Tiempo estimado");
 
-        txtTiempo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        txtTiempo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        txtTiempo.setText("0");
-        txtTiempo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTiempoActionPerformed(evt);
-            }
-        });
-
         tituloSinretraso.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
         tituloSinretraso.setText("Tiempo sin retrasos");
+
+        txtTiempo.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtTiempo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtTiempo.setOpaque(true);
+
+        txtTestimado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtTestimado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        txtTestimado.setOpaque(true);
 
         javax.swing.GroupLayout jPTiemposLayout = new javax.swing.GroupLayout(jPTiempos);
         jPTiempos.setLayout(jPTiemposLayout);
         jPTiemposLayout.setHorizontalGroup(
             jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPTiemposLayout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addGroup(jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtTestimado, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPTiemposLayout.createSequentialGroup()
-                            .addComponent(tituloSinretraso)
-                            .addGap(15, 15, 15))))
-                .addContainerGap(42, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPTiemposLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(tituloConretraso)
                 .addGap(66, 66, 66))
+            .addGroup(jPTiemposLayout.createSequentialGroup()
+                .addGroup(jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPTiemposLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(tituloSinretraso))
+                    .addGroup(jPTiemposLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTestimado, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
+                            .addComponent(txtTiempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPTiemposLayout.setVerticalGroup(
             jPTiemposLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPTiemposLayout.createSequentialGroup()
                 .addContainerGap(15, Short.MAX_VALUE)
                 .addComponent(tituloSinretraso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(11, 11, 11)
                 .addComponent(txtTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tituloConretraso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTestimado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtTestimado, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
 
@@ -219,39 +236,36 @@ public class Mapa extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(ButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(LabelMapa, javax.swing.GroupLayout.PREFERRED_SIZE, 947, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jPTiempos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(21, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jPTiempos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(108, 108, 108)
-                                .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                .addGap(109, 109, 109)
+                                .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(52, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(LabelMapa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(6, 6, 6))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPTiempos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(185, 185, 185)))
+                .addGap(50, 50, 50)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPTiempos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(174, 174, 174))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(LabelMapa)
                 .addContainerGap())
         );
 
@@ -259,22 +273,17 @@ public class Mapa extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ButtonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMostrarActionPerformed
         LabelMapa.paint(LabelMapa.getGraphics());
         cbxSalida.setEnabled(true);
        
@@ -335,7 +344,7 @@ public class Mapa extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ButtonMostrarActionPerformed
 
         // Dibuja lineas que representan las rutas posibles que el usuario puede escoger
     public static void PintarRutas(int numVertices, DatosGraficos arboles) throws IOException {// pinta todas las rutas en el mapa a escoger
@@ -500,8 +509,8 @@ public class Mapa extends javax.swing.JFrame {
 
             Font fuente = new Font("Arial", Font.BOLD, 18);
      
-            txtTiempo.setText(Dijkstra.getAcumulado() + " MIN");
-            txtTestimado.setText( Dijkstra.getAcumulado()+ retrasos+ " MIN");
+            txtTiempo.setText(Dijkstra.getAcumulado() + " MIN"+" ");
+            txtTestimado.setText( Dijkstra.getAcumulado()+ retrasos+ " MIN"+" ");
         }
         
     }//GEN-LAST:event_TrzarRutaActionPerformed
@@ -515,9 +524,25 @@ public class Mapa extends javax.swing.JFrame {
         cbxRetrasos.setEnabled(true);
     }//GEN-LAST:event_cbxDestinoActionPerformed
 
-    private void txtTiempoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTiempoActionPerformed
+    private void ButtonMostrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonMostrarMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTiempoActionPerformed
+        ButtonMostrar.setOpaque(true);
+    }//GEN-LAST:event_ButtonMostrarMouseEntered
+
+    private void ButtonMostrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonMostrarMouseExited
+        // TODO add your handling code here:
+        ButtonMostrar.setOpaque(false);
+    }//GEN-LAST:event_ButtonMostrarMouseExited
+
+    private void TrzarRutaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TrzarRutaMouseEntered
+        // TODO add your handling code here:
+        TrzarRuta.setOpaque(true);
+    }//GEN-LAST:event_TrzarRutaMouseEntered
+
+    private void TrzarRutaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TrzarRutaMouseExited
+        // TODO add your handling code here:
+        TrzarRuta.setOpaque(false);
+    }//GEN-LAST:event_TrzarRutaMouseExited
     
     
     /**
@@ -556,12 +581,12 @@ public class Mapa extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ButtonMostrar;
     public static javax.swing.JLabel LabelMapa;
     private javax.swing.JButton TrzarRuta;
     private javax.swing.JComboBox<String> cbxDestino;
     public javax.swing.JComboBox<String> cbxRetrasos;
     private javax.swing.JComboBox<String> cbxSalida;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -570,7 +595,7 @@ public class Mapa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel tituloConretraso;
     private javax.swing.JLabel tituloSinretraso;
-    public javax.swing.JTextField txtTestimado;
-    public javax.swing.JTextField txtTiempo;
+    private javax.swing.JLabel txtTestimado;
+    private javax.swing.JLabel txtTiempo;
     // End of variables declaration//GEN-END:variables
 }

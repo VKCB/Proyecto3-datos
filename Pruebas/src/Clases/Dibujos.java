@@ -30,7 +30,7 @@ public class Dibujos {
         try {
             //g.drawOval(x, y-10, 20, 20);
             //Toolkit t = Toolkit.getDefaultToolkit ();
-            File archImg = new File("localizacion.png");
+            File archImg = new File("marcador-de-ubicacion.png");
             Image imagen2 = ImageIO.read(archImg);
 
             //Image imagen = t.getImage("R:\\TEC - II 2021\\Algoritmos y estructura de datos I\\Proyectos\\Proyecto 3\\Proyecto3-datos\\Pruebas\\src\\img\\localizacion.png");
@@ -91,13 +91,13 @@ public class Dibujos {
     }
 //Pintando nodos que son recorridos
 
-    public static void seleccionNodo(Graphics g, int coordXOrigen, int coordYOrigen, Color color) {
+    public static void seleccionNodo(Graphics g, int coordXOrigen, int coordYOrigen, Color colorfILL,Color colorOval) {
 
-        ((Graphics2D) g).setColor(color);
+        ((Graphics2D) g).setColor(colorfILL);
         ((Graphics2D) g).setStroke(new BasicStroke(3));// da el grosor del contorno al circulo        
-        ((Graphics2D) g).fillOval(coordXOrigen, coordYOrigen, 15, 15);//tamaño del circulo
-        ((Graphics2D) g).setColor(Color.GREEN);
-        ((Graphics2D) g).drawOval(coordXOrigen, coordYOrigen, 15, 15);
+        ((Graphics2D) g).fillOval(coordXOrigen, coordYOrigen, 17, 17);//tamaño del circulo
+        ((Graphics2D) g).setColor(colorOval);
+        ((Graphics2D) g).drawOval(coordXOrigen, coordYOrigen, 17, 17);
 
     }
 

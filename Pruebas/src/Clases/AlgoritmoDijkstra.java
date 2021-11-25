@@ -9,6 +9,9 @@ import static Forms.Mapa.PintarRutas;
 import java.awt.Color;
 import java.io.IOException;
 import static Forms.Mapa.LabelMapa;
+import java.awt.Image;
+import java.io.File;
+import javax.imageio.ImageIO;
 
 /**
  *
@@ -48,11 +51,12 @@ public class AlgoritmoDijkstra {
         {
             nodo[i] = new Vertice();
         }
+        Color color = new Color(138,90,26);
         LabelMapa.paint(LabelMapa.getGraphics());
         PintarRutas(numVertices, datosGraficos);
         Dibujos.seleccionNodo(LabelMapa.getGraphics(),
                 datosGraficos.getCoordeX(Origen),
-                datosGraficos.getCoordeY(Origen), Color.GREEN); //  se pinta de color el nodo de Origen
+                datosGraficos.getCoordeY(Origen), Color.GREEN,color); //  se pinta de color el nodo de Origen
 
         nodo[Origen].setVisitado(true); // un objeto de tipo Vertice
         nodo[Origen].setNombre(Origen); // un objeto de tipo Vertice
@@ -86,9 +90,7 @@ public class AlgoritmoDijkstra {
             for (int i = 0; i < numVertices; i++) { // buscamos cual de los nodos visitado tiene el acomulado menor par escogerlo como camino
                 if (nodo[i].isVisitado() == true && nodo[i].isEtiqueta() == false) {
                     if (nodo[i].getAcumulado() <= auxiliarAcumulado) {
-                        
                         Origen = nodo[i].getNombre();
-                        System.out.println("el origen es: "+Origen+" y su acumulado es: "+nodo[i].getAcumulado());
                         auxiliarAcumulado = nodo[i].getAcumulado();
                     }
                 }
@@ -98,7 +100,7 @@ public class AlgoritmoDijkstra {
         } while (subNumVertices < numVertices + 1);
 
         Nodoauxiliar = nodo[destino];
-
+        color = new Color(64,0,128);
         //Pintando caminos recorridos
         while (Nodoauxiliar.getPredecesor() != null) {
             Dibujos.pinta_Camino(LabelMapa.getGraphics(),
@@ -109,13 +111,13 @@ public class AlgoritmoDijkstra {
 
             Dibujos.seleccionNodo(LabelMapa.getGraphics(),
                     datosGraficos.getCoordeX(Nodoauxiliar.getNombre()),
-                    datosGraficos.getCoordeY(Nodoauxiliar.getNombre()), Color.BLUE);
+                    datosGraficos.getCoordeY(Nodoauxiliar.getNombre()), Color.YELLOW,color);
             Nodoauxiliar = Nodoauxiliar.getPredecesor();
         }//fin de while Recorriendo caminos
-
+        color = new Color(93,93,93);
         Dibujos.seleccionNodo(LabelMapa.getGraphics(),
                 datosGraficos.getCoordeX(destino),
-                datosGraficos.getCoordeY(destino),Color.RED);//Pintando Nodo del destino
+                datosGraficos.getCoordeY(destino),Color.RED,color);//Pintando Nodo del destino
 
     }
 
