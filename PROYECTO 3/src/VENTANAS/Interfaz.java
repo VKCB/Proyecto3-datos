@@ -11,7 +11,7 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author lujor
+ * @author Valerine
  */
 public class Interfaz extends javax.swing.JFrame {
 
