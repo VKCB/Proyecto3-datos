@@ -361,14 +361,14 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
     // Funcion al boton de Tucurrique
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Tucurrique.png");
+    ImageIcon img = new ImageIcon("Tucurrique.png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton18ActionPerformed
     // Funcion al boton de Juan Viñas
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Juan Viñas.png");
+    ImageIcon img = new ImageIcon("Juan Viñas.png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
@@ -380,91 +380,91 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton21ActionPerformed
     // Funcion al boton de Cachi
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Cachi (1).png");
+    ImageIcon img = new ImageIcon("Cachi (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
     // Funcion al boton de Birrisito
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Birrisito (1).png");
+    ImageIcon img = new ImageIcon("Birrisito (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
     // Funcion al boton de Turrialba
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Turrialba.png");
+    ImageIcon img = new ImageIcon("Turrialba.png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton19ActionPerformed
     // Funcion al boton de Paraiso
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Paraiso (1).png");
+    ImageIcon img = new ImageIcon("Paraiso (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton11ActionPerformed
     // Funcion al boton de Orosi
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Orosi (1).png");
+    ImageIcon img = new ImageIcon("Orosi (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton10ActionPerformed
     // Funcion al boton de Cartago
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\CartagoC (1).png");
+    ImageIcon img = new ImageIcon("CartagoC (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
     // Funcion al boton de Cervantes
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Cervantes (1).png");
+    ImageIcon img = new ImageIcon("Cervantes (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
     // Funcion al boton de Fundacion
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Fundacion (1).png");
+    ImageIcon img = new ImageIcon("Fundacion (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton7ActionPerformed
     //Funcion al boton de Oreamuno
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Oreamuno (1).png");
+    ImageIcon img = new ImageIcon("Oreamuno (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
     //Funcion al boton de Pitahaya
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Pitahaya (1).png");
+    ImageIcon img = new ImageIcon("Pitahaya (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton12ActionPerformed
     //Funcion al boton de Tejar
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Tejar (1).png");
+    ImageIcon img = new ImageIcon("Tejar (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton13ActionPerformed
     //Funcion al boton de Tierra blanca
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Tierra Blanca (1).png");
+    ImageIcon img = new ImageIcon("Tierra Blanca (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true); 
     }//GEN-LAST:event_jButton14ActionPerformed
     //Funcion al boton de Tres Rios
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-    ImageIcon img = new ImageIcon("C:\\Users\\Valerine\\OneDrive\\Documentos\\NetBeansProjects\\Proyecto3-datos\\PROYECTO 3\\src\\IMAGENES\\Tres Rios (1).png");
+    ImageIcon img = new ImageIcon("Tres Rios (1).png");
     jLabel4.setIcon(img);
     jPanel1.setVisible(false);
     jPanel3.setVisible(true); 
