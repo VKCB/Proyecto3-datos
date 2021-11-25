@@ -5,10 +5,10 @@
  */
 package Clases;
 
-import static Forms.Mapa.PintarRutas;
+import static VENTANAS.Mapa.PintarRutas;
 import java.awt.Color;
 import java.io.IOException;
-import static Forms.Mapa.LabelMapa;
+import static VENTANAS.Mapa.LabelMapa;
 import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;

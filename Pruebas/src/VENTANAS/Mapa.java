@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Forms;
+package VENTANAS;
 import Clases.AlgoritmoDijkstra;
 import Clases.DatosGraficos;
 import Clases.Dibujos;
@@ -62,6 +62,7 @@ public class Mapa extends javax.swing.JFrame {
         cbxDestino = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         cbxRetrasos = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 102, 102));
@@ -228,6 +229,13 @@ public class Mapa extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -248,7 +256,10 @@ public class Mapa extends javax.swing.JFrame {
                                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(104, 104, 104)
-                                .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(52, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -260,7 +271,9 @@ public class Mapa extends javax.swing.JFrame {
                 .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPTiempos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(26, 26, 26))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -543,6 +556,12 @@ public class Mapa extends javax.swing.JFrame {
         // TODO add your handling code here:
         TrzarRuta.setOpaque(false);
     }//GEN-LAST:event_TrzarRutaMouseExited
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         Interfaz h = new Interfaz ();
+      h.setVisible(true);
+      this.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
     
     
     /**
@@ -587,6 +606,7 @@ public class Mapa extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxDestino;
     public javax.swing.JComboBox<String> cbxRetrasos;
     private javax.swing.JComboBox<String> cbxSalida;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
