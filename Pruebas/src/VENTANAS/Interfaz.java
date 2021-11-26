@@ -316,7 +316,7 @@ public class Interfaz extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton21);
-        jButton21.setBounds(960, 550, 130, 50);
+        jButton21.setBounds(1070, 550, 130, 50);
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/LOGO (2) (1).png"))); // NOI18N
