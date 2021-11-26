@@ -29,6 +29,7 @@ public class Mapa extends javax.swing.JFrame {
      */
     public Mapa() {
         initComponents();
+        this.setLocationRelativeTo(null);
         cbxDestino.setEnabled(false);
         cbxSalida.setEnabled(false);
         TrzarRuta.setEnabled(false);
