@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Clases;
 
 import java.io.BufferedReader;
@@ -10,10 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 /**
- *
- * @author Familia Rayo
+ * Leer la matriz desde el txt
+ * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
  */
-
 public class LeeMatriz {
     int[][] matriz;// matriz para almacenar los datos del txt
     int longitud;// longitud del array
@@ -26,10 +21,6 @@ public class LeeMatriz {
         matriz = new int[longitud][longitud];// se inicializa la matriz
         linea = br.readLine();// se lee la primera linea
         fila=0;//
-        
-        
-        
-    
     }
     
     public void set_matriz() throws IOException{

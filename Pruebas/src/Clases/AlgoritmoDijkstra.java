@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Clases;
 
 import static VENTANAS.Mapa.PintarRutas;
@@ -17,8 +13,8 @@ import java.io.File;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Allan
+ *Clase del algoritmo de Dijkstra, para localizar las rutas minimas y dibujar la ruta
+ * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
  */
 public class AlgoritmoDijkstra {
 
@@ -49,8 +45,14 @@ public class AlgoritmoDijkstra {
         return nodo[destino].getNombre();
     }
 
+    /**
+     * Algoritmo de dijkstra
+     * @throws IOException 
+     */
     public void dijkstra() throws IOException {
-        for (int i = 0; i < numVertices; i++) // creación del vector nodo del tamaño del numero de nodos pintados 
+        
+        // creación del vector nodo del tamaño del numero de nodos pintados 
+        for (int i = 0; i < numVertices; i++) 
         {
             nodo[i] = new Vertice();
         }
@@ -61,23 +63,28 @@ public class AlgoritmoDijkstra {
         Image imagen1 = ImageIO.read(archImg1);
         LabelMapa.paint(LabelMapa.getGraphics());
         PintarRutas(numVertices, datosGraficos);
+        //  se pinta de color el nodo de Origen
         Dibujos.seleccionNodo(LabelMapa.getGraphics(),
                 datosGraficos.getCoordeX(Origen),
-                datosGraficos.getCoordeY(Origen), Color.YELLOW,color); //  se pinta de color el nodo de Origen
-        //Pintamos la imagen en el mapa
+                datosGraficos.getCoordeY(Origen), Color.YELLOW,color); 
+        //Pintamos la imagen en el mapa, del nodo inicia o origen
         ((Graphics2D) LabelMapa.getGraphics()).drawImage(imagen1, datosGraficos.getCoordeX(Origen), datosGraficos.getCoordeY(Origen), 65, 65, null);
 
-        nodo[Origen].setVisitado(true); // un objeto de tipo Vertice
-        nodo[Origen].setNombre(Origen); // un objeto de tipo Vertice
+         // un objeto de tipo Vertice
+        nodo[Origen].setVisitado(true);
+        // un objeto de tipo Vertice
+        nodo[Origen].setNombre(Origen); 
 
         do {
+            // lo igualamos a esta cifra ya que el acomulado de los nodos, a la que nunca sera mayor 
             subtotalAcomulado = 0;
-            auxiliarAcumulado = 2000000000; // lo igualamos a esta cifra ya que el acomulado de los nodos, a la que nunca sera mayor 
+            auxiliarAcumulado = 2000000000; 
             nodo[Origen].setEtiqueta(true);
             
             //se guardan
             for (int j = 0; j < numVertices; j++) {
-                if (datosGraficos.getmAdyacencia(j, Origen) == 1) { //si el nodo iterado tiene conexión con el origen escogido
+                //si el nodo iterado tiene conexión con el origen escogido
+                if (datosGraficos.getmAdyacencia(j, Origen) == 1) { 
                     subtotalAcomulado = nodo[Origen].getAcumulado() + datosGraficos.getmDistancias(j, Origen);
 
                     if (subtotalAcomulado <= nodo[j].getAcumulado() && nodo[j].isVisitado() == true && nodo[j].isEtiqueta() == false) {
@@ -96,7 +103,8 @@ public class AlgoritmoDijkstra {
             }
 
             //Encontrando Camino mas corto
-            for (int i = 0; i < numVertices; i++) { // buscamos cual de los nodos visitado tiene el acomulado menor par escogerlo como camino
+            // buscamos cual de los nodos visitado tiene el acomulado menor par escogerlo como camino
+            for (int i = 0; i < numVertices; i++) { 
                 if (nodo[i].isVisitado() == true && nodo[i].isEtiqueta() == false) {
                     if (nodo[i].getAcumulado() <= auxiliarAcumulado) {
                         Origen = nodo[i].getNombre();
@@ -126,11 +134,8 @@ public class AlgoritmoDijkstra {
                     datosGraficos.getCoordeY(Nodoauxiliar.getNombre()), Color.YELLOW,color);
             Nodoauxiliar = Nodoauxiliar.getPredecesor();
         }//fin de while Recorriendo caminos
-        color = new Color(93,93,93);
-        /*Dibujos.seleccionNodo(LabelMapa.getGraphics(),
-                datosGraficos.getCoordeX(destino),
-                datosGraficos.getCoordeY(destino),Color.RED,color);//Pintando Nodo del destino*/
-        //Pintamos la imagen en el mapa
+        
+        //Pintamos la imagen en el mapa, del nodo final o destino
         ((Graphics2D) LabelMapa.getGraphics()).drawImage(imagen3, datosGraficos.getCoordeX(destino), datosGraficos.getCoordeY(destino), 65, 65, null);
         
 

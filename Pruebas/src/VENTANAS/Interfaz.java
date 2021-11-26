@@ -10,8 +10,9 @@ import javax.swing.ImageIcon;
 
 
 /**
- *
- * @author lujor
+ *Clase que contiene las pantallas de la informacion de cada lugar
+ * y la pantalla principal
+ * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
  */
 public class Interfaz extends javax.swing.JFrame {
 
@@ -481,6 +482,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
+     * clase principal de interfaz
      * @param args the command line arguments
      */
     public static void main(String args[]) {

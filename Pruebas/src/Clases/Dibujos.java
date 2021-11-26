@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Clases;
 
 import java.awt.BasicStroke;
@@ -17,8 +13,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- *
- * @author Allan
+ *Clase que dibuja las lineas y los nodos que forman el camino
+ * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
  */
 public class Dibujos {
 
@@ -26,6 +22,14 @@ public class Dibujos {
 
     }
 
+    /**
+     * Pinta los iconos en el mapa
+     * @param g
+     * @param x
+     * @param y
+     * @param n
+     * @throws IOException 
+     */
     public static void pinta_localizador(Graphics g, int x, int y, String n) throws IOException {
         try {
             //Ruta de la imagen
@@ -45,6 +49,15 @@ public class Dibujos {
         }
     }
 
+    /**
+     * Metodo que pinta la ruta y los nombres en el Mapa
+     * @param g
+     * @param coordXPuntoPartida
+     * @param coordYPuntoPartida
+     * @param coordXDestino
+     * @param coordYDestino
+     * @param distancia 
+     */
     public static void pinta_Rutas(Graphics g, int coordXPuntoPartida, int coordYPuntoPartida, int coordXDestino, int coordYDestino, double distancia) {
         int xAux = 0;
         int yAux = 0;
@@ -74,6 +87,15 @@ public class Dibujos {
         ((Graphics2D) g).drawString(String.valueOf(distancia), xAux, yAux);
     }
 
+    /**
+     * Metodo para obtener los parametros del camino y dibijarlo en el mapa
+     * @param g
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @param color 
+     */
     public static void pinta_Camino(Graphics g, int x1, int y1, int x2, int y2, Color color) {
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
         BasicStroke stroke = new BasicStroke(3);
@@ -82,7 +104,15 @@ public class Dibujos {
         g.drawLine(x1 + 10, y1 + 10, x2 + 10, y2 + 10);
 
     }
-    //Pintando nodos que son recorridos
+    
+    /**
+     * Metodo que indicara cual es el nodo qeu esta selecionado, como origeb, destino, o intermedio
+     * @param g
+     * @param coordXOrigen
+     * @param coordYOrigen
+     * @param colorfILL
+     * @param colorOval 
+     */
     public static void seleccionNodo(Graphics g, int coordXOrigen, int coordYOrigen, Color colorfILL,Color colorOval) {
 
         ((Graphics2D) g).setColor(colorfILL);

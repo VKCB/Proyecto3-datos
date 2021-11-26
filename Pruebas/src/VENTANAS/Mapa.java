@@ -7,16 +7,16 @@ package VENTANAS;
 import Clases.AlgoritmoDijkstra;
 import Clases.DatosGraficos;
 import Clases.Dibujos;
-import java.awt.Color;
 import java.awt.Font;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Allan
+/***
+ *Esta clase contiene la interfaz del mapa y las clases necesarias para 
+ * dibujar las rutas y iconos en el mapa
+ * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
  */
 public class Mapa extends javax.swing.JFrame {
     
@@ -25,7 +25,7 @@ public class Mapa extends javax.swing.JFrame {
     DatosGraficos datosGraficos = new DatosGraficos();
 
     /**
-     * Creates new form Mapa
+     * Inicializa los componentes
      */
     public Mapa() {
         initComponents();
@@ -361,6 +361,12 @@ public class Mapa extends javax.swing.JFrame {
     }//GEN-LAST:event_ButtonMostrarActionPerformed
 
         // Dibuja lineas que representan las rutas posibles que el usuario puede escorer
+    /**
+     * Metodo para pintar las rutas
+     * @param numVertices
+     * @param arboles
+     * @throws IOException 
+     */
     public static void PintarRutas(int numVertices, DatosGraficos arboles) throws IOException {// pinta todas las rutas en el mapa a escoger
         for (int j = 0; j < numVertices; j++) {
             for (int k = 0; k < numVertices; k++) {
@@ -376,7 +382,7 @@ public class Mapa extends javax.swing.JFrame {
     }
     
     /**
-     * odigo par atrazar la ruta seleccionada, cone l boton btnbuscar
+     * codigo par atrazar la ruta seleccionada, del boton TrazarRuta
      * @param evt 
      */
     private void TrzarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrzarRutaActionPerformed
@@ -566,6 +572,7 @@ public class Mapa extends javax.swing.JFrame {
     
     
     /**
+     * Clase main de de Mapa
      * @param args the command line arguments
      */
     public static void main(String args[]) {

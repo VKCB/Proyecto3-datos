@@ -1,13 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Clases;
 
 /**
- *
- * @author Allan
+ *Clase para los getter y setters de la parte grafica, como las cordenadas de los nodos
+ * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
  */
 public class DatosGraficos {
 
@@ -18,10 +14,7 @@ public class DatosGraficos {
     private final String nombre[] = new String[15];
     private int enArbol[];
 
-    /**
-     *
-     * @author Jose H Elel
-     */
+  
     public DatosGraficos() {
 
     }
