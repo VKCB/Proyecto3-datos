@@ -12,10 +12,11 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+//hola
 
 /***
  *Esta clase contiene la interfaz del mapa y las clases necesarias para 
- * dibujar las rutas y iconos en el mapa
+ * dibujar las rutas y iconos en el mapa j
  * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
  */
 public class Mapa extends javax.swing.JFrame {
