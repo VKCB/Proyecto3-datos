@@ -94,7 +94,7 @@ public class Interfaz extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("MainForm");
         setName("MainFrame"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(1280, 680));
+        setPreferredSize(new java.awt.Dimension(1250, 668));
         setResizable(false);
         setSize(new java.awt.Dimension(840, 430));
 
@@ -335,6 +335,7 @@ public class Interfaz extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(102, 102, 102));
         jPanel2.setPreferredSize(new java.awt.Dimension(1268, 671));
+        jPanel2.setLayout(null);
 
         ButtonMostrar.setBackground(new java.awt.Color(153, 153, 153));
         ButtonMostrar.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
@@ -359,10 +360,15 @@ public class Interfaz extends javax.swing.JFrame {
                 ButtonMostrarActionPerformed(evt);
             }
         });
+        jPanel2.add(ButtonMostrar);
+        ButtonMostrar.setBounds(25, 6, 77, 44);
 
+        LabelMapa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/mapaCartago.jpg"))); // NOI18N
         LabelMapa.setBorder(javax.swing.BorderFactory.createMatteBorder(5, 5, 5, 5, new java.awt.Color(0, 51, 51)));
         LabelMapa.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         LabelMapa.setPreferredSize(new java.awt.Dimension(1105, 603));
+        jPanel2.add(LabelMapa);
+        LabelMapa.setBounds(10, 56, 947, 566);
 
         TrzarRuta.setBackground(new java.awt.Color(153, 153, 153));
         TrzarRuta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Botones/imgLupaPequeña.png"))); // NOI18N
@@ -383,6 +389,8 @@ public class Interfaz extends javax.swing.JFrame {
                 TrzarRutaActionPerformed(evt);
             }
         });
+        jPanel2.add(TrzarRuta);
+        TrzarRuta.setBounds(1061, 258, 73, 56);
 
         jPTiempos.setBackground(new java.awt.Color(72, 129, 129));
 
@@ -433,6 +441,9 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(txtTestimado, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15))
         );
+
+        jPanel2.add(jPTiempos);
+        jPTiempos.setBounds(975, 325, 245, 129);
 
         jPanel4.setBackground(new java.awt.Color(71, 141, 141));
 
@@ -494,45 +505,8 @@ public class Interfaz extends javax.swing.JFrame {
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(LabelMapa, javax.swing.GroupLayout.PREFERRED_SIZE, 947, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPTiempos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(104, 104, 104)
-                                .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addComponent(ButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(ButtonMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(TrzarRuta, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jPTiempos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(LabelMapa, javax.swing.GroupLayout.PREFERRED_SIZE, 566, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel2.add(jPanel4);
+        jPanel4.setBounds(975, 56, 253, 191);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(1240, 630));
@@ -566,17 +540,16 @@ public class Interfaz extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 1240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(88, 88, 88)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 1268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addComponent(VentanaInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -710,6 +683,10 @@ public class Interfaz extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        VentanaInicial.setVisible(false);
+        jPanel1.setVisible(false);
+        jPanel3.setVisible(false);
+        jPanel2.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void ButtonMostrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButtonMostrarMouseEntered
@@ -951,7 +928,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxDestinoActionPerformed
 
     // Dibuja lineas que representan las rutas posibles que el usuario puede escorer
-    public void PintarRutas(int numVertices, DatosGraficos arboles) throws IOException {// pinta todas las rutas en el mapa a escoger
+    public static void PintarRutas(int numVertices, DatosGraficos arboles) throws IOException {// pinta todas las rutas en el mapa a escoger
         for (int j = 0; j < numVertices; j++) {
             for (int k = 0; k < numVertices; k++) {
                 if (arboles.getmAdyacencia(j, k) == 1) { //se pinta las líneas
@@ -964,8 +941,6 @@ public class Interfaz extends javax.swing.JFrame {
             
         }
     }
-    
-    
     
     /**
      * @param args the command line arguments
@@ -1005,11 +980,11 @@ public class Interfaz extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ButtonMostrar;
-    public javax.swing.JLabel LabelMapa;
+    public static javax.swing.JLabel LabelMapa;
     private javax.swing.JButton TrzarRuta;
     private javax.swing.JPanel VentanaInicial;
     private javax.swing.JComboBox<String> cbxDestino;
-    private javax.swing.JComboBox<String> cbxRetrasos;
+    public javax.swing.JComboBox<String> cbxRetrasos;
     private javax.swing.JComboBox<String> cbxSalida;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1038,7 +1013,7 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JPanel jPTiempos;
+    public javax.swing.JPanel jPTiempos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

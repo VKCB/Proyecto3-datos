@@ -5,10 +5,10 @@
  */
 package Clases;
 
-import VENTANAS.Interfaz.PintarRutas;
+import static VENTANAS.Interfaz.PintarRutas;
 import java.awt.Color;
 import java.io.IOException;
-import VENTANAS.Interfaz.LabelMapa;
+import static VENTANAS.Interfaz.LabelMapa;
 import java.awt.Image;
 import java.io.File;
 import javax.imageio.ImageIO;
@@ -85,8 +85,7 @@ public class AlgoritmoDijkstra {
                         nodo[j].setVisitado(true);
                         nodo[j].setNombre(j);
                         nodo[j].setPredecesor(nodo[Origen]);
-                    } else if (nodo[j].isVisitado() == false) {
-                        System.out.println(j);
+                    } else if (nodo[j].isVisitado() == false) {     
                         nodo[j].setAcumulado(subtotalAcomulado);
                         nodo[j].setVisitado(true);
                         nodo[j].setNombre(j);
@@ -104,7 +103,7 @@ public class AlgoritmoDijkstra {
                     }
                 }
             }
-            System.out.println("------------------------------------------");
+
             subNumVertices++;
         } while (subNumVertices < numVertices + 1);
 
