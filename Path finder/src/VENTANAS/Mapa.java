@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 
 
 /***
- *Esta clase contiene la interfaz del mapa y las clases necesarias para 
+ *Esta clase contiene la interfaz del mapa y las clases necesarias para desplegar las rutas
  * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
  * @since 25/11/2021
  * @version 1.0
@@ -357,10 +357,9 @@ public class Mapa extends javax.swing.JFrame {
         }
     }
     
-    /**
-     * codigo par atrazar la ruta seleccionada, del boton TrazarRuta
-     * @param evt 
-     */
+    
+    //métddo para trazar la ruta seleccionada, del boton TrazarRuta
+     
     private void TrzarRutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TrzarRutaActionPerformed
 
         int origen = 0, destino = 0, retrasos = 0;
