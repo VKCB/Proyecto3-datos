@@ -31,13 +31,9 @@ public class Ordenamiento {
                 vector[i]=vector[j];
                 vector[j]=aux;
                 }
-            }
-        
-        
-        
+            }  
         }
-    
-    
+
     }
     public void mostrar(){
         for(int i=0; i<vector.length; i++){

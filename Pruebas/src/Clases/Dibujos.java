@@ -13,60 +13,66 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 
 /**
- *Clase que dibuja las lineas y los nodos que forman el camino
+ *Clase que dibuja las lineas y los nodos que forman el camino del mapa
  * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
+ * @since 25/11/2021
+ * @version 1.0
  */
 public class Dibujos {
-
+    
+    //cosntructor vacío
     public Dibujos() {
 
     }
 
     /**
-     * Pinta los iconos en el mapa
-     * @param g
-     * @param x
-     * @param y
-     * @param n
+     * Pinta los iconos de localización en cada vertice o lugar en el mapa
+     * @param g contexto gráfico del componente.
+     * @param coordenadaXVertice coordenada "X" en el mapa del vertice recibido.
+     * @param coordenadaYVertice coordenada "Y" en el mapa del vertice recibido.
+     * @param nombreVertice nombre del vértice o lugar.
      * @throws IOException 
      */
-    public static void pinta_localizador(Graphics g, int x, int y, String n) throws IOException {
+    public static void pinta_localizador(Graphics g, int coordenadaXVertice, int coordenadaYVertice, String nombreVertice) throws IOException {
         try {
-            //Ruta de la imagen
+            // se carga la imagen que contiene el icono de localización.
             File archImg = new File("marcador-de-ubicacion.png");
             Image imagen2 = ImageIO.read(archImg);
 
-            //Se pinta la imagen en cada punto
-            ((Graphics2D) g).drawImage(imagen2, x, y, 22, 22, null);
+            //Se pinta la la imagen que contiene el icono de localización en cada vértice.
+            ((Graphics2D) g).drawImage(imagen2, coordenadaXVertice, coordenadaYVertice, 22, 22, null);
 
-            //Se crean las lineas 
+            //Se pinta el nombre del vertice o lugar en el mapa
             ((Graphics2D) g).setColor(Color.BLACK);
             Font fuente = new Font("Monospaced", Font.BOLD, 19);
             g.setFont(fuente);
-            ((Graphics2D) g).drawString(n, x, y);
+            ((Graphics2D) g).drawString(nombreVertice, coordenadaXVertice, coordenadaYVertice);
         } catch (IOException ex) {
 
         }
     }
 
     /**
-     * Metodo que pinta la ruta y los nombres en el Mapa
-     * @param g
-     * @param coordXPuntoPartida
-     * @param coordYPuntoPartida
-     * @param coordXDestino
-     * @param coordYDestino
-     * @param distancia 
+     * Metodo que pinta las rutas y los costos de las rutas en el Mapa.
+     * @param g contexto gráfico del componente.
+     * @param coordXPuntoPartida coordenada "X" del punto de origen o de partida.
+     * @param coordYPuntoPartida coordenada "Y" del punto de origen o de partida.
+     * @param coordXDestino coordenada "X" del punto de destino.
+     * @param coordYDestino coordenada "Y" del punto de destino.
+     * @param costo costo de la ruta
      */
-    public static void pinta_Rutas(Graphics g, int coordXPuntoPartida, int coordYPuntoPartida, int coordXDestino, int coordYDestino, double distancia) {
-        int xAux = 0;
-        int yAux = 0;
+    public static void pinta_Rutas(Graphics g, int coordXPuntoPartida, int coordYPuntoPartida, int coordXDestino, int coordYDestino, double costo) {
+        int xAux = 0; // coordenada "X" donde se pintará el costo de la ruta en el mapa.
+        int yAux = 0; // coordenada "Y" donde se pintará el costo de la ruta en el mapa.
         
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        BasicStroke stroke = new BasicStroke(1);
+        BasicStroke stroke = new BasicStroke(1); // se establece el grosor de la linea
         ((Graphics2D) g).setStroke(stroke);
+        // se dibuja una linea de un vertice a otro, para representar la conexión o camino que existe entre ellos.
         ((Graphics2D) g).drawLine(coordXPuntoPartida + 10, coordYPuntoPartida + 10, coordXDestino + 10, coordYDestino + 10);
         
+        // se calcula cual es la coordenada que está a la mitad de la ruta de un nodo a otro, 
+        //  para pintar el coste de la ruta en esa posición.
         if (coordXPuntoPartida <= coordXDestino) {
             xAux = ((coordXDestino - coordXPuntoPartida) / 2) + coordXPuntoPartida+2;
         }
@@ -80,38 +86,37 @@ public class Dibujos {
             yAux = ((coordYPuntoPartida - coordYDestino) / 2) + coordYDestino;
         }
         
-        //Texto de cada vertice
+        // se pinta el costo de la arista o ruta en el mapa.
         ((Graphics2D) g).setColor(Color.RED);
         Font fuente = new Font("Monospaced", Font.PLAIN, 11);
         g.setFont(fuente);
-        ((Graphics2D) g).drawString(String.valueOf(distancia), xAux, yAux);
+        ((Graphics2D) g).drawString(String.valueOf(costo), xAux, yAux);
     }
 
     /**
-     * Metodo para obtener los parametros del camino y dibijarlo en el mapa
-     * @param g
-     * @param x1
-     * @param y1
-     * @param x2
-     * @param y2
-     * @param color 
+     * Método que pinta la mejor ruta de un punto de partida hasta un destino en el mapa.
+     * @param g contexto gráfico del componente.
+     * @param coordXVertice coordenada "X" de un vertice que se encuentra en la mejor ruta.
+     * @param coordYVertice coordenada "Y" de un vertice que se encuentra en la mejor ruta.
+     * @param coordXPredecesor coordenada "X" del predecesor de un vértice que se encuentra en la mejor ruta.
+     * @param coordYPredecesor coordenada "Y" del predecesor de un vértice que se encuentra en la mejor ruta.
+     * @param color color de la linea que será la mejor ruta.
      */
-    public static void pinta_Camino(Graphics g, int x1, int y1, int x2, int y2, Color color) {
+    public static void pinta_Camino(Graphics g, int coordXVertice, int coordYVertice, int coordXPredecesor, int coordYPredecesor, Color color) {
         ((Graphics2D) g).setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-        BasicStroke stroke = new BasicStroke(3);
+        BasicStroke stroke = new BasicStroke(3); // se define el grosor de la linea
         ((Graphics2D) g).setStroke(stroke);
         g.setColor(color);
-        g.drawLine(x1 + 10, y1 + 10, x2 + 10, y2 + 10);
-
+        g.drawLine(coordXVertice + 10, coordYVertice + 10, coordXPredecesor + 10, coordYPredecesor + 10);
     }
     
     /**
-     * Metodo que indicara cual es el nodo qeu esta selecionado, como origeb, destino, o intermedio
-     * @param g
-     * @param coordXOrigen
-     * @param coordYOrigen
-     * @param colorfILL
-     * @param colorOval 
+     * Metodo que pinta un circulo en cada vertice que se encuentra en la mejor ruta
+     * @param g contexto gráfico del componente.
+     * @param coordXOrigen coordenada "X" del punto de origen o de partida.
+     * @param coordYOrigen coordenada "Y" del punto de origen o de partida.
+     * @param colorfILL color del relleno del círculo
+     * @param colorOval color del borde del círculo
      */
     public static void seleccionNodo(Graphics g, int coordXOrigen, int coordYOrigen, Color colorfILL,Color colorOval) {
 

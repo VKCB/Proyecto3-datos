@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package VENTANAS;
 import Clases.AlgoritmoDijkstra;
 import Clases.DatosGraficos;
@@ -12,18 +8,19 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-//hola
+
 
 /***
  *Esta clase contiene la interfaz del mapa y las clases necesarias para 
- * dibujar las rutas y iconos en el mapa j
  * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
+ * @since 25/11/2021
+ * @version 1.0
  */
 public class Mapa extends javax.swing.JFrame {
     
     private int NumVertices = 0;//Numero de nodos o vertices (lugares) 
     
-    DatosGraficos datosGraficos = new DatosGraficos();
+    DatosGraficos datosGraficos = new DatosGraficos(); // objeto de la clase "DatosGraficos"
 
     /**
      * Inicializa los componentes
@@ -301,8 +298,8 @@ public class Mapa extends javax.swing.JFrame {
     private void ButtonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMostrarActionPerformed
         LabelMapa.paint(LabelMapa.getGraphics());
         cbxSalida.setEnabled(true);
-       
-        int MatrizAdyacencia[][] = {
+       // matriz que posee las conexiones directas que existen entre los vértices o lugares del mapa.
+        int MatrizAdyacencia[][] = { 
             {0, 1, 0, 1, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0}, // 1
             {1, 0, 1, 0, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0}, // 2
             {0, 1, 0, 0, 0, 1, 0, 0, 0,  0,  0,  0,  0,  1,  0}, // 3
@@ -319,24 +316,24 @@ public class Mapa extends javax.swing.JFrame {
             {0, 0, 1, 0, 0, 1, 0, 0, 1,  0,  0,  0,  1,  0,  0}, // 14
             {0, 0, 0, 0, 0, 0, 0, 0, 0,  0,  0,  1,  0,  0,  0}  // 15
         };
-
-        double distancias[][] = {
-            {0, 8.9, 0, 18.5, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},
-            {8.9, 0, 9.2, 0, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},
-            {0, 9.2, 0, 0, 0, 5.8, 0, 0, 0,  0,  0,  0,  0,  12.8,  0},
-            {18.5, 0, 0, 0, 13.1, 17.9, 0, 0, 0,  0,  0,  0,  0,  0,  0},
-            {0, 0, 0, 13.1, 0, 7.8, 8.4, 8.6, 0,  0,  0,  0,  0,  0,  0},
-            {0, 0, 5.8, 17.9, 7.8, 0, 3.5, 0, 0,  0,  0,  0,  0,  13.3,  0},
-            {0, 0, 0, 0, 8.4, 3.5, 0, 7.1, 4.7,  5,  0,  0,  0,  0,  0},
-            {0, 0, 0, 0, 8.6, 0, 7.1, 0, 0,  0,  0,  15.1,  0,  0,  0},
-            {0, 0, 0, 0, 0, 0, 4.7, 0, 0,  1.4,  0,  0,  10.4,  5.8,  0},
-            {0, 0, 0, 0, 0, 0, 5, 0, 1.4,  0,  2.1,  0,  10,  0,  0},
-            {0, 0, 0, 0, 0, 0, 0, 0, 0,  2.1,  0,  2.5,  0,  0,  0},
-            {0, 0, 0, 0, 0, 0, 0, 15.1, 0,  0,  2.5,  0,  10.1,  0,  1.2},
-            {0, 0, 0, 0, 0, 0, 0, 0, 10.4,  9.8,  0,  10.1,  0,  12.5,  0},
-            {0, 0, 12.8, 0, 0, 13.3, 0, 0, 5.8,  0,  0,  0,  12.5,  0,  0},
+        // matriz que posee los costos o pesos que existen entre los vértices o lugares del mapa.
+        double costos[][] = {
+            {0, 8.9, 0, 18.5, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},       // 1
+            {8.9, 0, 9.2, 0, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},        // 2
+            {0, 9.2, 0, 0, 0, 5.8, 0, 0, 0,  0,  0,  0,  0,  12.8,  0},     // 3
+            {18.5, 0, 0, 0, 13.1, 17.9, 0, 0, 0,  0,  0,  0,  0,  0,  0},   // 4
+            {0, 0, 0, 13.1, 0, 7.8, 8.4, 8.6, 0,  0,  0,  0,  0,  0,  0},   // 5
+            {0, 0, 5.8, 17.9, 7.8, 0, 3.5, 0, 0,  0,  0,  0,  0,  13.3,  0},// 6
+            {0, 0, 0, 0, 8.4, 3.5, 0, 7.1, 4.7,  5,  0,  0,  0,  0,  0},    // 7
+            {0, 0, 0, 0, 8.6, 0, 7.1, 0, 0,  0,  0,  15.1,  0,  0,  0},     // 8
+            {0, 0, 0, 0, 0, 0, 4.7, 0, 0,  1.4,  0,  0,  10.4,  5.8,  0},   // 9
+            {0, 0, 0, 0, 0, 0, 5, 0, 1.4,  0,  2.1,  0,  10,  0,  0},       // 10
+            {0, 0, 0, 0, 0, 0, 0, 0, 0,  2.1,  0,  2.5,  0,  0,  0},        // 11
+            {0, 0, 0, 0, 0, 0, 0, 15.1, 0,  0,  2.5,  0,  10.1,  0,  1.2},  // 12
+            {0, 0, 0, 0, 0, 0, 0, 0, 10.4,  9.8,  0,  10.1,  0,  12.5,  0}, // 13
+            {0, 0, 12.8, 0, 0, 13.3, 0, 0, 5.8,  0,  0,  0,  12.5,  0,  0}, // 14
             {0, 0, 0, 0, 0, 0, 0, 0, 0,  0,  0,  1.2,  0,  0,  0}};         // 15
-
+        
         int coordenadasX[] = {890, 710, 570, 800, 570, 480, 400, 470, 320, 235, 280,  200,  60,  350,  190};
         int coordenadasY[] = {95,  135, 170, 300, 370, 260, 280, 480, 215, 240, 290,  280,  135,  85,  335};
              String nom[] =  {"Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachí", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "Tejar", "Tres Ríos", "Tierra Blanca", "La Fundacion"};
@@ -350,7 +347,7 @@ public class Mapa extends javax.swing.JFrame {
         for (int j = 0; j < 15; j++) {
             for (int k = 0; k < 15; k++) {
                 datosGraficos.setmAdyacencia(j, k, MatrizAdyacencia[j][k]);
-                datosGraficos.setmDistancias(j, k, distancias[j][k]);
+                datosGraficos.setmDistancias(j, k, costos[j][k]);
             }
         }
         NumVertices = 15;
@@ -360,24 +357,23 @@ public class Mapa extends javax.swing.JFrame {
             Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ButtonMostrarActionPerformed
-
-        // Dibuja lineas que representan las rutas posibles que el usuario puede escorer
+ 
     /**
-     * Metodo para pintar las rutas
-     * @param numVertices
-     * @param arboles
+     * Metodo para pintar las rutas y el ícono de localización.
+     * @param numVertices número de vértices
+     * @param datosgraficos objeto de la clase "DatosGraficos"
      * @throws IOException 
      */
-    public static void PintarRutas(int numVertices, DatosGraficos arboles) throws IOException {// pinta todas las rutas en el mapa a escoger
+    public static void PintarRutas(int numVertices, DatosGraficos datosgraficos) throws IOException {// pinta todas las rutas en el mapa a escoger
         for (int j = 0; j < numVertices; j++) {
             for (int k = 0; k < numVertices; k++) {
-                if (arboles.getmAdyacencia(j, k) == 1) { //se pinta las líneas
-                    Dibujos.pinta_Rutas(LabelMapa.getGraphics(), arboles.getCoordeX(j), arboles.getCoordeY(j), arboles.getCoordeX(k), arboles.getCoordeY(k), arboles.getmDistancias(j, k));
+                if (datosgraficos.getmAdyacencia(j, k) == 1) { //se pinta las líneas
+                    Dibujos.pinta_Rutas(LabelMapa.getGraphics(), datosgraficos.getCoordeX(j), datosgraficos.getCoordeY(j), datosgraficos.getCoordeX(k), datosgraficos.getCoordeY(k), datosgraficos.getmDistancias(j, k));
                 }
             }
         }
         for (int j = 0; j < numVertices; j++) { // se pintan los simbolos de ubicación en cada lugar
-            Dibujos.pinta_localizador(LabelMapa.getGraphics(), arboles.getCoordeX(j), arboles.getCoordeY(j), arboles.getNombre(j));
+            Dibujos.pinta_localizador(LabelMapa.getGraphics(), datosgraficos.getCoordeX(j), datosgraficos.getCoordeY(j), datosgraficos.getNombre(j));
             
         }
     }
@@ -573,7 +569,7 @@ public class Mapa extends javax.swing.JFrame {
     
     
     /**
-     * Clase main de de Mapa
+     * Método principal de la clase "Mapa"
      * @param args the command line arguments
      */
     public static void main(String args[]) {

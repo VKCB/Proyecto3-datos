@@ -10,9 +10,10 @@ import javax.swing.ImageIcon;
 
 
 /**
- *Clase que contiene las pantallas de la informacion de cada lugar
- * y la pantalla principal
+ *Clase que contiene la pantalla inicial y las pantallas de información de cada lugar.
  * @author Allan Prieto, Allan Chen, Valerin Calderon, Daniel Rayo, Ludwin Ramos
+ * @since 25/11/2021
+ * @version 1.0
  */
 public class Interfaz extends javax.swing.JFrame {
 
@@ -349,13 +350,14 @@ public class Interfaz extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // boton para regresar de la pantalla de información a la pantalla inicial
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         VentanaInicial.setVisible(true);
         jPanel1.setVisible(false);
         
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    // Botón para cambiar a la pantalla de información
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
        jPanel1.setVisible(true);
        VentanaInicial.setVisible(false);
@@ -374,7 +376,7 @@ public class Interfaz extends javax.swing.JFrame {
     jPanel1.setVisible(false);
     jPanel3.setVisible(true);
     }//GEN-LAST:event_jButton8ActionPerformed
-
+    // Orosi
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
      jPanel3.setVisible(false);
      jPanel1.setVisible(true);
@@ -482,7 +484,7 @@ public class Interfaz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
-     * clase principal de interfaz
+     * Método principal de inicia la interfaz
      * @param args the command line arguments
      */
     public static void main(String args[]) {
