@@ -3,6 +3,7 @@ package VENTANAS;
 import Clases.AlgoritmoDijkstra;
 import Clases.DatosGraficos;
 import Clases.Dibujos;
+import Clases.LeeMatriz;
 import java.awt.Font;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -296,63 +297,41 @@ public class Mapa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ButtonMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonMostrarActionPerformed
-        LabelMapa.paint(LabelMapa.getGraphics());
-        cbxSalida.setEnabled(true);
-       // matriz que posee las conexiones directas que existen entre los vértices o lugares del mapa.
-        int MatrizAdyacencia[][] = { 
-            {0, 1, 0, 1, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0}, // 1
-            {1, 0, 1, 0, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0}, // 2
-            {0, 1, 0, 0, 0, 1, 0, 0, 0,  0,  0,  0,  0,  1,  0}, // 3
-            {1, 0, 0, 0, 1, 1, 0, 0, 0,  0,  0,  0,  0,  0,  0}, // 4
-            {0, 0, 0, 1, 0, 1, 1, 1, 0,  0,  0,  0,  0,  0,  0}, // 5
-            {0, 0, 1, 1, 1, 0, 1, 0, 0,  0,  0,  0,  0,  1,  0}, // 6
-            {0, 0, 0, 0, 1, 1, 0, 1, 1,  1,  0,  0,  0,  0,  0}, // 7
-            {0, 0, 0, 0, 1, 0, 1, 0, 0,  0,  0,  1,  0,  0,  0}, // 8
-            {0, 0, 0, 0, 0, 0, 1, 0, 0,  1,  0,  0,  1,  1,  0}, // 9
-            {0, 0, 0, 0, 0, 0, 1, 0, 1,  0,  1,  0,  1,  0,  0}, // 10
-            {0, 0, 0, 0, 0, 0, 0, 0, 0,  1,  0,  1,  0,  0,  0}, // 11
-            {0, 0, 0, 0, 0, 0, 0, 1, 0,  0,  1,  0,  1,  0,  1}, // 12
-            {0, 0, 0, 0, 0, 0, 0, 0, 1,  1,  0,  1,  0,  1,  0}, // 13
-            {0, 0, 1, 0, 0, 1, 0, 0, 1,  0,  0,  0,  1,  0,  0}, // 14
-            {0, 0, 0, 0, 0, 0, 0, 0, 0,  0,  0,  1,  0,  0,  0}  // 15
-        };
-        // matriz que posee los costos o pesos que existen entre los vértices o lugares del mapa.
-        double costos[][] = {
-            {0, 8.9, 0, 18.5, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},       // 1
-            {8.9, 0, 9.2, 0, 0, 0, 0, 0, 0,  0,  0,  0,  0,  0,  0},        // 2
-            {0, 9.2, 0, 0, 0, 5.8, 0, 0, 0,  0,  0,  0,  0,  12.8,  0},     // 3
-            {18.5, 0, 0, 0, 13.1, 17.9, 0, 0, 0,  0,  0,  0,  0,  0,  0},   // 4
-            {0, 0, 0, 13.1, 0, 7.8, 8.4, 8.6, 0,  0,  0,  0,  0,  0,  0},   // 5
-            {0, 0, 5.8, 17.9, 7.8, 0, 3.5, 0, 0,  0,  0,  0,  0,  13.3,  0},// 6
-            {0, 0, 0, 0, 8.4, 3.5, 0, 7.1, 4.7,  5,  0,  0,  0,  0,  0},    // 7
-            {0, 0, 0, 0, 8.6, 0, 7.1, 0, 0,  0,  0,  15.1,  0,  0,  0},     // 8
-            {0, 0, 0, 0, 0, 0, 4.7, 0, 0,  1.4,  0,  0,  10.4,  5.8,  0},   // 9
-            {0, 0, 0, 0, 0, 0, 5, 0, 1.4,  0,  2.1,  0,  10,  0,  0},       // 10
-            {0, 0, 0, 0, 0, 0, 0, 0, 0,  2.1,  0,  2.5,  0,  0,  0},        // 11
-            {0, 0, 0, 0, 0, 0, 0, 15.1, 0,  0,  2.5,  0,  10.1,  0,  1.2},  // 12
-            {0, 0, 0, 0, 0, 0, 0, 0, 10.4,  9.8,  0,  10.1,  0,  12.5,  0}, // 13
-            {0, 0, 12.8, 0, 0, 13.3, 0, 0, 5.8,  0,  0,  0,  12.5,  0,  0}, // 14
-            {0, 0, 0, 0, 0, 0, 0, 0, 0,  0,  0,  1.2,  0,  0,  0}};         // 15
-        
-        int coordenadasX[] = {890, 710, 570, 800, 570, 480, 400, 470, 320, 235, 280,  200,  60,  350,  190};
-        int coordenadasY[] = {95,  135, 170, 300, 370, 260, 280, 480, 215, 240, 290,  280,  135,  85,  335};
-             String nom[] =  {"Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachí", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "Tejar", "Tres Ríos", "Tierra Blanca", "La Fundacion"};
-      
-        for (int j = 0; j < 15; j++) {
-            datosGraficos.setCoordeX(j, coordenadasX[j]);
-            datosGraficos.setCoordeY(j, coordenadasY[j]);
-            datosGraficos.setNombre(j, nom[j]);
+        try {                                              
+            LabelMapa.paint(LabelMapa.getGraphics());
+            cbxSalida.setEnabled(true);
+            int MatrizAdyacencia[][];
+            // matriz que posee las conexiones directas que existen entre los vértices o lugares del mapa.
+            LeeMatriz leerMatrizAdyacencia = new LeeMatriz("MatrizAdyacencia.txt");
+            MatrizAdyacencia= leerMatrizAdyacencia.get_matrizAdyacencia();
 
-        }
-        for (int j = 0; j < 15; j++) {
-            for (int k = 0; k < 15; k++) {
-                datosGraficos.setmAdyacencia(j, k, MatrizAdyacencia[j][k]);
-                datosGraficos.setmDistancias(j, k, costos[j][k]);
+            // matriz que posee los costos o pesos que existen entre los vértices o lugares del mapa.
+            LeeMatriz leerMatrizCostos = new LeeMatriz("MatrizCostos.txt");
+            double costos[][] = leerMatrizCostos.get_matrizCostos();
+            
+            // coordenafas de cada vértice en el mapa
+            int coordenadasX[] = {890, 710, 570, 800, 570, 480, 400, 470, 320, 235, 280,  200,  60,  350,  190};
+            int coordenadasY[] = {95,  135, 170, 300, 370, 260, 280, 480, 215, 240, 290,  280,  135,  85,  335};
+            String nom[] =  {"Turrialba", "Juan Viñas", "Cervantes", "Tucurrique", "Cachí", "Birrisito", "Paraiso", "Orosi", "Oreamuno", "Cartago", "Pitahaya", "Tejar", "Tres Ríos", "Tierra Blanca", "La Fundacion"};
+            
+            for (int j = 0; j < 15; j++) {
+                datosGraficos.setCoordeX(j, coordenadasX[j]);
+                datosGraficos.setCoordeY(j, coordenadasY[j]);
+                datosGraficos.setNombre(j, nom[j]);
+                
             }
-        }
-        NumVertices = 15;
-        try { 
-            PintarRutas(NumVertices, datosGraficos);
+            for (int j = 0; j < 15; j++) {
+                for (int k = 0; k < 15; k++) {
+                    datosGraficos.setmAdyacencia(j, k, MatrizAdyacencia[j][k]);
+                    datosGraficos.setmDistancias(j, k, costos[j][k]);
+                }
+            }
+            NumVertices = 15;
+            try {
+                PintarRutas(NumVertices, datosGraficos);
+            } catch (IOException ex) {
+                Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (IOException ex) {
             Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
         }
